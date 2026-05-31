@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { AttemptRow } from "@/lib/db";
-import { clearHistory, fetchAttempts, fetchMastery } from "@/lib/db";
+import type { AttemptRow, MasteryRow } from "@/lib/db";
+import { clearHistory, fetchAttempts, fetchMasteryRows } from "@/lib/db";
 import { QUESTIONS } from "@/lib/questions";
 
 interface Props {
@@ -8,16 +8,20 @@ interface Props {
   onBack: () => void;
 }
 
+const RETIRE_THRESHOLD = 3;
+
 export function Progress({ userId, onBack }: Props) {
   const [attempts, setAttempts] = useState<AttemptRow[] | null>(null);
   const [mastery, setMastery] = useState<number>(0);
+  const [masteryRows, setMasteryRows] = useState<MasteryRow[]>([]);
 
   async function refresh() {
-    const [a, m] = await Promise.all([fetchAttempts(userId), fetchMastery(userId)]);
+    const [a, rows] = await Promise.all([fetchAttempts(userId), fetchMasteryRows(userId)]);
     setAttempts(a);
+    setMasteryRows(rows);
     const coreIds = new Set(QUESTIONS.core.map((q) => q.id));
     let n = 0;
-    m.forEach((id) => coreIds.has(id) && n++);
+    rows.forEach((r) => coreIds.has(r.question_id) && n++);
     setMastery(n);
   }
 
