@@ -55,18 +55,42 @@ export type Database = {
       }
       mastery: {
         Row: {
+          correct_count: number
+          last_correct_at: string
           mastered_at: string
           question_id: string
           user_id: string
         }
         Insert: {
+          correct_count?: number
+          last_correct_at?: string
           mastered_at?: string
           question_id: string
           user_id: string
         }
         Update: {
+          correct_count?: number
+          last_correct_at?: string
           mastered_at?: string
           question_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_settings: {
+        Row: {
+          hide_mastered: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          hide_mastered?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          hide_mastered?: boolean
+          updated_at?: string
           user_id?: string
         }
         Relationships: []
