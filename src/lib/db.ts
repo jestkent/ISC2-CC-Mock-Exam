@@ -66,7 +66,7 @@ export async function fetchMastery(userId: string): Promise<Set<string>> {
     console.error(error);
     return new Set();
   }
-  return new Set((data ?? []).map((r) => r.question_id));
+  return new Set((data ?? []).map((r: { question_id: string }) => r.question_id));
 }
 
 export async function recordMastery(userId: string, questionIds: string[]) {
