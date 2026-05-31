@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { AttemptRow } from "@/lib/db";
-import { clearHistory, fetchAttempts, fetchMastery } from "@/lib/db";
+import type { AttemptRow, MasteryRow } from "@/lib/db";
+import { clearHistory, fetchAttempts, fetchMasteryRows } from "@/lib/db";
 import { QUESTIONS } from "@/lib/questions";
 
 interface Props {
@@ -8,16 +8,20 @@ interface Props {
   onBack: () => void;
 }
 
+const RETIRE_THRESHOLD = 3;
+
 export function Progress({ userId, onBack }: Props) {
   const [attempts, setAttempts] = useState<AttemptRow[] | null>(null);
   const [mastery, setMastery] = useState<number>(0);
+  const [masteryRows, setMasteryRows] = useState<MasteryRow[]>([]);
 
   async function refresh() {
-    const [a, m] = await Promise.all([fetchAttempts(userId), fetchMastery(userId)]);
+    const [a, rows] = await Promise.all([fetchAttempts(userId), fetchMasteryRows(userId)]);
     setAttempts(a);
+    setMasteryRows(rows);
     const coreIds = new Set(QUESTIONS.core.map((q) => q.id));
     let n = 0;
-    m.forEach((id) => coreIds.has(id) && n++);
+    rows.forEach((r) => coreIds.has(r.question_id) && n++);
     setMastery(n);
   }
 
@@ -67,6 +71,34 @@ export function Progress({ userId, onBack }: Props) {
             {mastery >= QUESTIONS.core.length ? "Advanced unlocked." : `${QUESTIONS.core.length - mastery} more to unlock Advanced.`}
           </p>
         </div>
+
+        {(() => {
+          const retired = new Set(masteryRows.filter((r) => r.correct_count >= RETIRE_THRESHOLD).map((r) => r.question_id));
+          const pools: { label: string; ids: string[] }[] = [
+            { label: "Core", ids: QUESTIONS.core.map((q) => q.id) },
+            { label: "Advanced Set A", ids: QUESTIONS.advancedA.map((q) => q.id) },
+            { label: "Advanced Set B", ids: QUESTIONS.advancedB.map((q) => q.id) },
+          ];
+          return (
+            <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
+              <h2 className="font-serif text-xl mb-4">Retired questions</h2>
+              <p className="text-xs text-muted-foreground mb-4">Answered correctly {RETIRE_THRESHOLD}+ times. Excluded from new tests when "Hide mastered" is on.</p>
+              <div className="space-y-2 text-sm">
+                {pools.map((p) => {
+                  const n = p.ids.filter((id) => retired.has(id)).length;
+                  return (
+                    <div key={p.label} className="flex justify-between">
+                      <span>{p.label}</span>
+                      <span className="tabular-nums text-muted-foreground">{n} of {p.ids.length} retired</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
+
+
 
         <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
           <h2 className="font-serif text-xl mb-4">Last 20 exams</h2>
