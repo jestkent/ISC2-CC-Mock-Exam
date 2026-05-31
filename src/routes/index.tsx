@@ -9,7 +9,13 @@ import { Progress } from "@/components/Progress";
 import type { ExamState, ResultSummary } from "@/lib/exam";
 import { buildExam, prepareQuestions, saveInProgress, scoreExam } from "@/lib/exam";
 import { PASS_PCT, QUESTIONS, type Question } from "@/lib/questions";
-import { fetchAttempts, recordMastery, saveAttempt } from "@/lib/db";
+import {
+  fetchAttempts,
+  fetchMasteryRows,
+  fetchSettings,
+  incrementCorrect,
+  saveAttempt,
+} from "@/lib/db";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,6 +32,15 @@ export const Route = createFileRoute("/")({
 
 type View = "home" | "exam" | "results" | "progress";
 
+const RETIRE_THRESHOLD = 3;
+
+async function filteredPool(userId: string | undefined, pool: Question[], hide: boolean): Promise<Question[]> {
+  if (!hide || !userId) return pool;
+  const rows = await fetchMasteryRows(userId);
+  const retired = new Set(rows.filter((r) => r.correct_count >= RETIRE_THRESHOLD).map((r) => r.question_id));
+  return pool.filter((q) => !retired.has(q.id));
+}
+
 function Index() {
   const { user, loading } = useAuth();
   const [view, setView] = useState<View>("home");
@@ -36,15 +51,42 @@ function Index() {
   const userId = user?.id;
 
   const startExam = useMemo(() => async (mode: "full" | "quick" | "advA" | "advB" | "domainDrill") => {
-    let state: ExamState;
+    const settings = userId ? await fetchSettings(userId) : { hide_mastered: false };
+    const hide = settings.hide_mastered;
+
+    const build = (
+      m: ExamState["mode"],
+      baseLabel: string,
+      sourcePool: Question[],
+      normalCount: number | undefined,
+      timeLimitSec: number | null,
+    ): ExamState | null => {
+      const pool = sourcePool; // already filtered when passed in
+      if (pool.length === 0) {
+        alert("You've mastered every question in this set. Toggle off \"Hide mastered questions\" to practice them again.");
+        return null;
+      }
+      const target = normalCount ?? pool.length;
+      const useCount = Math.min(target, pool.length);
+      const note = hide && useCount < (normalCount ?? sourcePool.length)
+        ? ` · ${useCount} unmastered`
+        : "";
+      return buildExam(m, baseLabel + note, prepareQuestions(pool, useCount), timeLimitSec);
+    };
+
+    let state: ExamState | null = null;
     if (mode === "full") {
-      state = buildExam("full", "Full Exam", prepareQuestions(QUESTIONS.core), 2 * 60 * 60);
+      const pool = await filteredPool(userId, QUESTIONS.core, hide);
+      state = build("full", "Full Exam", pool, 100, 2 * 60 * 60);
     } else if (mode === "quick") {
-      state = buildExam("quick", "Quick Drill", prepareQuestions(QUESTIONS.core, 25), null);
+      const pool = await filteredPool(userId, QUESTIONS.core, hide);
+      state = build("quick", "Quick Drill", pool, 25, null);
     } else if (mode === "advA") {
-      state = buildExam("advA", "Advanced · Set A", prepareQuestions(QUESTIONS.advancedA), 60 * 60);
+      const pool = await filteredPool(userId, QUESTIONS.advancedA, hide);
+      state = build("advA", "Advanced · Set A", pool, 50, 60 * 60);
     } else if (mode === "advB") {
-      state = buildExam("advB", "Advanced · Set B", prepareQuestions(QUESTIONS.advancedB), 60 * 60);
+      const pool = await filteredPool(userId, QUESTIONS.advancedB, hide);
+      state = build("advB", "Advanced · Set B", pool, 50, 60 * 60);
     } else {
       // domainDrill — find weakest domain from history
       let weakest = QUESTIONS.core[0].domainName;
@@ -61,11 +103,15 @@ function Index() {
           .sort((a, b) => a[1].correct / a[1].total - b[1].correct / b[1].total);
         if (ranked.length) weakest = ranked[0][0];
       }
-      const pool = QUESTIONS.core.filter((q) => q.domainName === weakest);
-      state = buildExam("domainDrill", `Drill · ${weakest}`, prepareQuestions(pool), null);
+      const basePool = QUESTIONS.core.filter((q) => q.domainName === weakest);
+      const pool = await filteredPool(userId, basePool, hide);
+      state = build("domainDrill", `Drill · ${weakest}`, pool, undefined, null);
     }
-    setExam(state);
-    setView("exam");
+
+    if (state) {
+      setExam(state);
+      setView("exam");
+    }
   }, [userId]);
 
   async function handleSubmit(state: ExamState) {
@@ -74,11 +120,11 @@ function Index() {
     if (userId) {
       const setLabel = state.mode === "advA" ? "A" : state.mode === "advB" ? "B" : null;
       await saveAttempt(userId, state.mode, setLabel, summary);
-      // Mastery: any CORE question answered correctly
-      const masteredQids = state.items
-        .map((it, i) => (state.answers[i] === it.correctDisplayIndex && it.q.id.startsWith("core-") ? it.q.id : null))
+      // Track correct_count for every question answered correctly (all pools).
+      const correctQids = state.items
+        .map((it, i) => (state.answers[i] === it.correctDisplayIndex ? it.q.id : null))
         .filter((x): x is string => x !== null);
-      if (masteredQids.length) await recordMastery(userId, masteredQids);
+      if (correctQids.length) await incrementCorrect(userId, correctQids);
     }
     setResult({ state, summary });
     setView("results");
