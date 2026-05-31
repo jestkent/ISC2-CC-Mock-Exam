@@ -629,8 +629,8 @@
         "Need to know",
         "Segregation of duties"
       ],
-      "answerIndex": 3,
-      "explanation": "Separating administrative duties (managing users) from data access (reading records) is segregation of duties."
+      "answerIndex": 1,
+      "explanation": "Prina is granted only the minimum permissions needed for her job (add/remove users) and is denied any access beyond that (reading data). That is the textbook definition of least privilege. Segregation of duties is about splitting a single sensitive workflow across multiple people so no one person can complete it alone, which is not what this scenario describes."
     },
     {
       "id": "core-45",
