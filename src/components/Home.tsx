@@ -95,6 +95,21 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
           </div>
         )}
 
+        <div className="mb-6 bg-card text-card-foreground rounded-xl p-5 border border-border/30 flex items-center justify-between gap-4">
+          <div>
+            <div className="font-serif text-lg">Hide questions I've answered correctly {RETIRE_THRESHOLD}+ times</div>
+            <div className="text-sm text-muted-foreground">Retired questions are excluded from new tests. Nothing is deleted — toggle off to bring them back.</div>
+          </div>
+          <button
+            role="switch"
+            aria-checked={hideMastered}
+            onClick={() => toggleHide(!hideMastered)}
+            className={`shrink-0 w-12 h-7 rounded-full relative transition-colors ${hideMastered ? "bg-primary" : "bg-muted"}`}
+          >
+            <span className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-background transition-transform ${hideMastered ? "translate-x-5" : ""}`} />
+          </button>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-5">
           <ModeCard
             icon={<Clock />}
