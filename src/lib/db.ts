@@ -1,5 +1,10 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as supabaseClient } from "@/integrations/supabase/client";
 import type { ResultSummary } from "./exam";
+
+// Types are not auto-generated for our tables yet; cast through any.
+const supabase = supabaseClient as unknown as {
+  from: (t: string) => any;
+};
 
 export interface AttemptRow {
   id: string;
