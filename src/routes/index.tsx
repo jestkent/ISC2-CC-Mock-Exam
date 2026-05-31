@@ -18,7 +18,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Study and practice for the ISC2 Certified in Cybersecurity (CC) exam." },
     ],
   }),
-  ssr: false,
+  pendingComponent: () => (
+    <div className="min-h-screen flex items-center justify-center text-muted-foreground">Loading…</div>
+  ),
   component: Index,
 });
 
