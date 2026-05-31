@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attempts: {
+        Row: {
+          correct: number
+          created_at: string
+          domains: Json
+          id: string
+          mode: string
+          passed: boolean
+          pct: number
+          set: string | null
+          total: number
+          user_id: string
+        }
+        Insert: {
+          correct: number
+          created_at?: string
+          domains?: Json
+          id?: string
+          mode: string
+          passed: boolean
+          pct: number
+          set?: string | null
+          total: number
+          user_id: string
+        }
+        Update: {
+          correct?: number
+          created_at?: string
+          domains?: Json
+          id?: string
+          mode?: string
+          passed?: boolean
+          pct?: number
+          set?: string | null
+          total?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      mastery: {
+        Row: {
+          mastered_at: string
+          question_id: string
+          user_id: string
+        }
+        Insert: {
+          mastered_at?: string
+          question_id: string
+          user_id: string
+        }
+        Update: {
+          mastered_at?: string
+          question_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
