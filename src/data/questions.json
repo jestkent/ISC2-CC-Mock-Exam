@@ -1,0 +1,2824 @@
+{
+  "meta": {
+    "exam": "ISC2 Certified in Cybersecurity (CC)",
+    "passPercent": 70,
+    "domains": {
+      "1": "Security Principles",
+      "2": "BC, DR & Incident Response",
+      "3": "Access Controls",
+      "4": "Network Security",
+      "5": "Security Operations"
+    },
+    "counts": {
+      "core": 100,
+      "advancedA": 50,
+      "advancedB": 50
+    }
+  },
+  "core": [
+    {
+      "id": "core-1",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "If two people want to use asymmetric communication to conduct a confidential conversation, how many keys do they need?",
+      "options": [
+        "1",
+        "4",
+        "8",
+        "11"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each party needs their own key pair (one public + one private). Two people = 2 pairs = 4 keys total."
+    },
+    {
+      "id": "core-2",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Hashing is often used to provide _______.",
+      "options": [
+        "Availability",
+        "Value",
+        "Integrity",
+        "Confidentiality"
+      ],
+      "answerIndex": 2,
+      "explanation": "A hash detects whether data has changed, so it supports integrity. It does not hide data (confidentiality) or keep it accessible (availability)."
+    },
+    {
+      "id": "core-3",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "The output of a hashing algorithm is _____.",
+      "options": [
+        "The same length",
+        "Different for the same inputs",
+        "The same characters",
+        "The same language"
+      ],
+      "answerIndex": 0,
+      "explanation": "A given hash function always produces a fixed-length output regardless of input size. The same input always yields the same hash."
+    },
+    {
+      "id": "core-4",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Which one of the following is a benefit of computer-based training (CBT)?",
+      "options": [
+        "Expensive",
+        "Scalable",
+        "Interacting with other participants",
+        "Personal interaction with instructor"
+      ],
+      "answerIndex": 1,
+      "explanation": "CBT scales easily to large audiences at low marginal cost. Live interaction is a strength of instructor-led training, not CBT."
+    },
+    {
+      "id": "core-5",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "What is the most crucial element of any security instruction program?",
+      "options": [
+        "Protect assets",
+        "Ensure availability of IT systems",
+        "Preserve health and human safety",
+        "Preserve shareholder value"
+      ],
+      "answerIndex": 2,
+      "explanation": "Human safety is always the top priority in security; everything else is secondary to protecting people."
+    },
+    {
+      "id": "core-6",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "The organization should keep a copy of every signed Acceptable Use Policy (AUP) on file and issue a copy to _______.",
+      "options": [
+        "Lawmakers",
+        "The Public Relations office",
+        "The regulators overseeing that industry",
+        "The user who signed it"
+      ],
+      "answerIndex": 3,
+      "explanation": "The signer gets a copy for their records; the organization retains the signed original on file."
+    },
+    {
+      "id": "core-7",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Why is the proper alignment of security policy and business goals within the organization important?",
+      "options": [
+        "Security is more important than business",
+        "Bad security policy can be illegal",
+        "Security should always be as strict as possible",
+        "Security policy that conflicts with business goals can inhibit productivity"
+      ],
+      "answerIndex": 3,
+      "explanation": "Security exists to enable the business. Policies that fight business objectives reduce productivity and get circumvented."
+    },
+    {
+      "id": "core-8",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "An organization must always be prepared to ______ when applying a patch.",
+      "options": [
+        "Pay for the updated content",
+        "Settle lawsuits",
+        "Rollback",
+        "Buy a new system"
+      ],
+      "answerIndex": 2,
+      "explanation": "Patches can break systems, so a tested rollback plan is essential before deploying any patch."
+    },
+    {
+      "id": "core-9",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "______ is used to ensure that configuration management activities are effective and enforced.",
+      "options": [
+        "Identification",
+        "Inventory",
+        "Baseline",
+        "Verification and audit"
+      ],
+      "answerIndex": 3,
+      "explanation": "Verification and audit confirm that the actual configuration matches the approved baseline and that the process is being followed."
+    },
+    {
+      "id": "core-10",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Triffid Inc. wants to host streaming video files for remote users but wants to ensure the data is protected while streaming. Which of the following methods are probably best?",
+      "options": [
+        "Symmetric encryption",
+        "Hashing",
+        "Asymmetric encryption",
+        "VLANs"
+      ],
+      "answerIndex": 0,
+      "explanation": "Symmetric encryption is fast and efficient for bulk/streaming data. Asymmetric is much slower and better suited to key exchange, not streaming media."
+    },
+    {
+      "id": "core-11",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Dieter wants to send a message to Lupa and wants to be sure Lupa knows the message has not been modified in transit. What technique/tool could Dieter use?",
+      "options": [
+        "Asymmetric encryption",
+        "Hashing",
+        "Symmetric encryption",
+        "Clockwise rotation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Hashing verifies that a message has not been altered (integrity). Encryption protects confidentiality, not integrity by itself."
+    },
+    {
+      "id": "core-12",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Logs should be reviewed ______.",
+      "options": [
+        "Continually",
+        "Once per fiscal year",
+        "Every Thursday",
+        "Once per calendar year"
+      ],
+      "answerIndex": 0,
+      "explanation": "Logs must be reviewed continually so that suspicious activity is detected and acted on promptly."
+    },
+    {
+      "id": "core-13",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Security controls on log data should reflect ________.",
+      "options": [
+        "The local culture where the log data is stored",
+        "The organization's commitment to customer service",
+        "The sensitivity of the source device",
+        "The price of the storage device"
+      ],
+      "answerIndex": 2,
+      "explanation": "Log data inherits the sensitivity of the device/system it came from, so controls should match that sensitivity."
+    },
+    {
+      "id": "core-14",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Log data should be kept ______.",
+      "options": [
+        "In an underground bunker",
+        "On a device other than where it was captured",
+        "On the device that the log data was captured from",
+        "In airtight containers"
+      ],
+      "answerIndex": 1,
+      "explanation": "Storing logs on a separate device prevents an attacker who compromises a system from also deleting or altering its logs."
+    },
+    {
+      "id": "core-15",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Data _____ is data left behind on systems/media after normal deletion procedures have been attempted.",
+      "options": [
+        "Packets",
+        "Fragments",
+        "Remanence",
+        "Residue"
+      ],
+      "answerIndex": 2,
+      "explanation": "Data remanence is residual data that survives ordinary deletion; it must be addressed with proper sanitization."
+    },
+    {
+      "id": "core-16",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "When data has reached the end of the retention period, it should be _____.",
+      "options": [
+        "Enhanced",
+        "Sold",
+        "Archived",
+        "Destroyed"
+      ],
+      "answerIndex": 3,
+      "explanation": "Once retention requirements expire, data should be securely destroyed to reduce risk and liability."
+    },
+    {
+      "id": "core-17",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Data retention periods apply to ____ data.",
+      "options": [
+        "Secret",
+        "Sensitive",
+        "All of the answers",
+        "Medical"
+      ],
+      "answerIndex": 2,
+      "explanation": "Retention requirements apply to all data types, not just one category."
+    },
+    {
+      "id": "core-18",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Security needs to be provided to ____ data.",
+      "options": [
+        "Illegal",
+        "Private",
+        "Restricted",
+        "All of the answers"
+      ],
+      "answerIndex": 3,
+      "explanation": "All data warrants appropriate protection; the level of protection scales with sensitivity."
+    },
+    {
+      "id": "core-19",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Triffid documents have a 24-point word (Sensitive/Proprietary/Public) at top and bottom. This is an example of _____.",
+      "options": [
+        "Privacy",
+        "Labeling",
+        "Secrecy",
+        "Inverting"
+      ],
+      "answerIndex": 1,
+      "explanation": "Marking a document with its classification level is labeling, which tells handlers how to treat the data."
+    },
+    {
+      "id": "core-20",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Archiving is typically done when _________.",
+      "options": [
+        "Data is not needed for regular work purposes",
+        "Data has lost all value",
+        "Data is ready to be destroyed",
+        "Data has become illegal"
+      ],
+      "answerIndex": 0,
+      "explanation": "Archiving moves data that is no longer needed for daily operations into longer-term storage; it still has value, so it isn't destroyed."
+    },
+    {
+      "id": "core-21",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What type of device is commonly advisable to have on the perimeter between two networks?",
+      "options": [
+        "IoT",
+        "Camera",
+        "User laptop",
+        "Firewall"
+      ],
+      "answerIndex": 3,
+      "explanation": "A firewall sits at the boundary between networks and filters traffic between them."
+    },
+    {
+      "id": "core-22",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "An IoT (Internet of Things) device is typified by its effect on or use of the ____ environment.",
+      "options": [
+        "Philosophical",
+        "Internal",
+        "Remote",
+        "Physical"
+      ],
+      "answerIndex": 3,
+      "explanation": "IoT devices interact with the physical world (sensors, actuators, cameras, thermostats, etc.)."
+    },
+    {
+      "id": "core-23",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "The section of the IT environment that is closest to the external world, where we locate IT systems that communicate with the Internet, is the:",
+      "options": [
+        "RBAC",
+        "VLAN",
+        "MAC",
+        "DMZ"
+      ],
+      "answerIndex": 3,
+      "explanation": "A DMZ (demilitarized zone) is the buffer subnet that hosts internet-facing systems, isolating them from the internal network."
+    },
+    {
+      "id": "core-24",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which common cloud service model offers the customer the most control of the cloud environment?",
+      "options": [
+        "Lunch as a service (LaaS)",
+        "Software as a service (SaaS)",
+        "Infrastructure as a service (IaaS)",
+        "Platform as a service (PaaS)"
+      ],
+      "answerIndex": 2,
+      "explanation": "IaaS gives the customer control over OS, runtime, and applications; the provider only manages the underlying hardware/virtualization."
+    },
+    {
+      "id": "core-25",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which type of fire-suppression system is typically the safest for humans?",
+      "options": [
+        "Oxygen-depletion",
+        "Gaseous",
+        "Dirt",
+        "Water"
+      ],
+      "answerIndex": 3,
+      "explanation": "Water-based suppression is generally safest for people (no oxygen depletion, no toxic agents), though it can damage equipment. Oxygen-depletion systems are dangerous to occupants."
+    },
+    {
+      "id": "core-26",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Which of the following activities is usually part of the configuration management process, but also extremely helpful in countering potential attacks?",
+      "options": [
+        "Annual budgeting",
+        "Conferences with senior leadership",
+        "The annual shareholders meeting",
+        "Updating and patching systems"
+      ],
+      "answerIndex": 3,
+      "explanation": "Patching closes known vulnerabilities and is both a configuration management task and a key defensive measure."
+    },
+    {
+      "id": "core-27",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What type of tool is utilized to monitor local devices with the aim of reducing potential threats from hostile software?",
+      "options": [
+        "Anti-malware",
+        "DLP (data loss prevention)",
+        "NIDS (network-based intrusion-detection systems)",
+        "Firewall"
+      ],
+      "answerIndex": 0,
+      "explanation": "Anti-malware monitors endpoints/local devices to detect and block hostile software."
+    },
+    {
+      "id": "core-28",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What type of solution typically inspects outbound communications traffic to check for unauthorized exfiltration of sensitive/valuable information?",
+      "options": [
+        "Anti-malware",
+        "Firewall",
+        "DLP (data loss prevention)",
+        "NIDS (network-based intrusion-detection systems)"
+      ],
+      "answerIndex": 2,
+      "explanation": "DLP inspects outbound data flows to prevent sensitive information from leaving the organization."
+    },
+    {
+      "id": "core-29",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What tool aggregates log data from multiple sources, typically analyzes it, and reports potential threats?",
+      "options": [
+        "Router",
+        "Anti-malware",
+        "SIEM",
+        "HIDS"
+      ],
+      "answerIndex": 2,
+      "explanation": "A SIEM (Security Information and Event Management) collects and correlates logs from many sources to surface threats."
+    },
+    {
+      "id": "core-30",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Inbound traffic from an external source seems to indicate much higher rates of communication than normal, to the point where internal systems might be overwhelmed. Which security solution can often identify and potentially counter this risk?",
+      "options": [
+        "Anti-malware",
+        "Turnstile",
+        "Badge system",
+        "Firewall"
+      ],
+      "answerIndex": 3,
+      "explanation": "A firewall can identify and block abnormal inbound traffic floods. Turnstiles and badge systems are physical controls."
+    },
+    {
+      "id": "core-31",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Triffid Inc. has many remote workers who use their own IT devices. The security team wants to deploy a sensor on user devices to recognize potential security issues. Which is most appropriate?",
+      "options": [
+        "NIDS (network-based intrusion-detection systems)",
+        "HIDS (host-based intrusion-detection systems)",
+        "LIDS (logistical intrusion-detection systems)",
+        "Firewalls"
+      ],
+      "answerIndex": 1,
+      "explanation": "A HIDS runs on the individual host/device, which is what's needed to monitor remote user devices directly."
+    },
+    {
+      "id": "core-32",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Bert downloads a free flashlight app that also steals Bert's contacts list. What kind of app is this?",
+      "options": [
+        "Side channel",
+        "Trojan",
+        "DDOS",
+        "On-path"
+      ],
+      "answerIndex": 1,
+      "explanation": "A Trojan disguises malicious functionality inside something that looks legitimate and useful."
+    },
+    {
+      "id": "core-33",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Gary gets access to the communication wire between Dauphine's machine and Linda's machine and surveys their traffic. What kind of attack is this?",
+      "options": [
+        "Side channel",
+        "DDOS",
+        "On-path",
+        "Physical"
+      ],
+      "answerIndex": 2,
+      "explanation": "Intercepting traffic between two parties is an on-path (man-in-the-middle) attack."
+    },
+    {
+      "id": "core-34",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Ludwig notices network traffic indicating an attack designed to affect the availability of the environment. Which of the following might be the attack Ludwig sees?",
+      "options": [
+        "Exfiltrating stolen data",
+        "DDOS (distributed denial of service)",
+        "Spoofing",
+        "An insider sabotaging the power supply"
+      ],
+      "answerIndex": 1,
+      "explanation": "A DDoS attack targets availability by overwhelming systems with traffic. It is network-based, matching what Ludwig sees in network traffic."
+    },
+    {
+      "id": "core-35",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Cyril wants to ensure all devices on his company's internal IT environment are properly synchronized in time. Which protocol?",
+      "options": [
+        "NTP (Network Time Protocol)",
+        "SMTP (Simple Mail Transfer Protocol)",
+        "HTTP (Hypertext Transfer Protocol)",
+        "FTP"
+      ],
+      "answerIndex": 0,
+      "explanation": "NTP synchronizes clocks across devices, which is critical for accurate logging and correlation."
+    },
+    {
+      "id": "core-36",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Carol is browsing the Web. Which of the following ports is she probably using?",
+      "options": [
+        "12",
+        "999",
+        "247",
+        "80"
+      ],
+      "answerIndex": 3,
+      "explanation": "Port 80 is the standard port for HTTP web traffic (443 for HTTPS)."
+    },
+    {
+      "id": "core-37",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What type of device, typically accessed by multiple users and often intended for a single purpose such as managing email or web pages, is this?",
+      "options": [
+        "Switch",
+        "Server",
+        "Router",
+        "Laptop"
+      ],
+      "answerIndex": 1,
+      "explanation": "A server provides a service (email, web, etc.) to multiple users/clients."
+    },
+    {
+      "id": "core-38",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What protocol should Barry use when he wants to upload a series of files to a web-based storage service?",
+      "options": [
+        "FTP (File Transfer Protocol)",
+        "SFTP (Secure File Transfer Protocol)",
+        "SMTP (Simple Mail Transfer Protocol)",
+        "SNMP (Simple Network Management Protocol)"
+      ],
+      "answerIndex": 0,
+      "explanation": "FTP is the basic file transfer protocol. SMTP is for email and SNMP is for network management. (Use SFTP when security is required.)"
+    },
+    {
+      "id": "core-39",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What type of device filters network traffic in order to enhance overall security/performance?",
+      "options": [
+        "MAC (Media Access Control)",
+        "Firewall",
+        "Laptop",
+        "Endpoint"
+      ],
+      "answerIndex": 1,
+      "explanation": "A firewall filters traffic according to rules, improving both security and performance."
+    },
+    {
+      "id": "core-40",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What term refers to the logical address of a device connected to the network or Internet?",
+      "options": [
+        "Internet Protocol (IP) address",
+        "Media access control (MAC) address",
+        "Geophysical address",
+        "Terminal address"
+      ],
+      "answerIndex": 0,
+      "explanation": "An IP address is the logical (assignable, routable) address. A MAC address is the physical/hardware address."
+    },
+    {
+      "id": "core-41",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Handel wants to ensure that employees assigned to new positions do not retain access they had in their old positions. Which method should Handel select?",
+      "options": [
+        "Mandatory access controls (MAC)",
+        "Discretionary access controls (DAC)",
+        "Logging",
+        "Role-based access controls (RBAC)"
+      ],
+      "answerIndex": 3,
+      "explanation": "With RBAC, access is tied to the role; changing roles automatically changes access, preventing privilege creep."
+    },
+    {
+      "id": "core-42",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Handel wants to ensure employees transferring to new positions can get access to different assets they need in the most efficient manner. Which method should Handel select?",
+      "options": [
+        "Role-based access controls (RBAC)",
+        "Barbed wire",
+        "Discretionary access controls (DAC)",
+        "Mandatory access controls (MAC)"
+      ],
+      "answerIndex": 0,
+      "explanation": "RBAC efficiently grants the new role's standard access set when an employee changes positions."
+    },
+    {
+      "id": "core-43",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Handel wants to ensure operational managers have utmost personal choice in determining which employees get access to which systems/data. Which method should Handel select?",
+      "options": [
+        "Discretionary access controls (DAC)",
+        "Mandatory access controls (MAC)",
+        "Security policy",
+        "Role-based access controls (RBAC)"
+      ],
+      "answerIndex": 0,
+      "explanation": "DAC lets the data owner/manager decide who gets access at their discretion."
+    },
+    {
+      "id": "core-44",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Prina is a database manager allowed to add/remove users but not read data in the database fields. This is an example of:",
+      "options": [
+        "Privilege management",
+        "Least privilege",
+        "Need to know",
+        "Segregation of duties"
+      ],
+      "answerIndex": 3,
+      "explanation": "Separating administrative duties (managing users) from data access (reading records) is segregation of duties."
+    },
+    {
+      "id": "core-45",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Suvid attempts to log into the production environment and a message appears stating Suvid has to reset the password. What may have occurred?",
+      "options": [
+        "Suvid forgot the password",
+        "The password expired",
+        "Suvid was locked out",
+        "The account was disabled"
+      ],
+      "answerIndex": 1,
+      "explanation": "A forced reset prompt typically indicates the password has reached its expiration."
+    },
+    {
+      "id": "core-46",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Gary is unable to log in to the production environment. Gary tries three times and is then locked out of trying again for one hour. Why could this be?",
+      "options": [
+        "Account lockout policy",
+        "Password expiration",
+        "Network failure",
+        "System maintenance"
+      ],
+      "answerIndex": 0,
+      "explanation": "Locking an account after a set number of failed attempts is an account lockout policy, which defends against brute-force attacks."
+    },
+    {
+      "id": "core-47",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Trina and Doug both work at Triffid Inc. Trina offers to log in for Doug using Trina's credentials so Doug can get some work done. What is the problem with this?",
+      "options": [
+        "It is against security policy",
+        "Password sharing violates non-repudiation",
+        "Trina could be blamed for Doug's actions",
+        "All of the above"
+      ],
+      "answerIndex": 3,
+      "explanation": "Sharing credentials violates policy, breaks non-repudiation, and misattributes actions, so all of the listed problems apply."
+    },
+    {
+      "id": "core-48",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which of the following would be considered a logical access control?",
+      "options": [
+        "A door lock",
+        "A fence",
+        "A username and password",
+        "A security guard"
+      ],
+      "answerIndex": 2,
+      "explanation": "A username/password is a logical (technical) control. Door locks, fences, and guards are physical controls."
+    },
+    {
+      "id": "core-49",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Tekila works for a government agency where data is assigned a sensitivity level (classification) and each person is assigned a clearance level controlled at the system level. What is the access control model?",
+      "options": [
+        "Discretionary access control (DAC)",
+        "Mandatory access control (MAC)",
+        "Role-based access control (RBAC)",
+        "Attribute-based access control (ABAC)"
+      ],
+      "answerIndex": 1,
+      "explanation": "Classification + clearance enforced by the system (not user discretion) is the hallmark of MAC."
+    },
+    {
+      "id": "core-50",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "A _____ is a record of something that has occurred.",
+      "options": [
+        "Report",
+        "Log",
+        "Audit",
+        "Alert"
+      ],
+      "answerIndex": 1,
+      "explanation": "A log is a record of events that have occurred on a system or device."
+    },
+    {
+      "id": "core-51",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Triffid, Inc., has many remote workers who use their own IT devices to process Triffid's information. The security team wants to deploy a sensor on user devices to recognize and identify potential security issues. Which is probably most appropriate?",
+      "options": [
+        "NIDS (network-based intrusion-detection systems)",
+        "LIDS (logistical intrusion-detection systems)",
+        "Firewalls",
+        "HIDS (host-based intrusion-detection systems)"
+      ],
+      "answerIndex": 3,
+      "explanation": "A HIDS lives on the host device itself, which is required to monitor individual remote user devices."
+    },
+    {
+      "id": "core-52",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Steve is a security practitioner assigned to come up with a protective measure for ensuring cars don't collide with pedestrians. What is probably the most effective type of control for this task?",
+      "options": [
+        "Administrative",
+        "Nuanced",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 2,
+      "explanation": "A physical control (such as a barrier or bollard) is most effective at physically keeping vehicles away from people."
+    },
+    {
+      "id": "core-53",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Chad is a security practitioner tasked with ensuring that the information on the organization's public website is not changed by anyone outside the organization. This task is an example of ensuring _________.",
+      "options": [
+        "Availability",
+        "Confidentiality",
+        "Confirmation",
+        "Integrity"
+      ],
+      "answerIndex": 3,
+      "explanation": "Preventing unauthorized modification is protecting integrity."
+    },
+    {
+      "id": "core-54",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which of the following is an example of a \"Something you know\" authentication factor?",
+      "options": [
+        "Fingerprint",
+        "Iris scan",
+        "Password",
+        "User ID"
+      ],
+      "answerIndex": 2,
+      "explanation": "A password is knowledge-based (something you know). A user ID is an identifier, not an authentication factor."
+    },
+    {
+      "id": "core-55",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which of the following is an example of a \"Something you are\" authentication factor?",
+      "options": [
+        "A credit card presented to a cash machine",
+        "A photograph of your face",
+        "A user ID",
+        "Your password and PIN"
+      ],
+      "answerIndex": 1,
+      "explanation": "A facial biometric is something you are. A card is something you have; a password/PIN is something you know."
+    },
+    {
+      "id": "core-56",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A system that collects transactional information and stores it in a record in order to show which users performed which actions is an example of providing ________.",
+      "options": [
+        "Biometrics",
+        "Multifactor authentication",
+        "Non-repudiation",
+        "Privacy"
+      ],
+      "answerIndex": 2,
+      "explanation": "Recording who did what so they cannot later deny it provides non-repudiation."
+    },
+    {
+      "id": "core-57",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "What is the European Union (EU) law that grants legal protections to individual human privacy?",
+      "options": [
+        "The Constitution",
+        "The General Data Protection Regulation",
+        "The Magna Carta",
+        "The Privacy Human Rights Act"
+      ],
+      "answerIndex": 1,
+      "explanation": "The GDPR is the EU's privacy and data protection regulation."
+    },
+    {
+      "id": "core-58",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "For which of the following systems would the security concept of availability probably be most important?",
+      "options": [
+        "Medical systems that monitor patient condition in an intensive-care unit",
+        "Medical systems that store patient data",
+        "Online streaming of camera feeds that display historical works of art in museums",
+        "Retail records of past transactions"
+      ],
+      "answerIndex": 0,
+      "explanation": "Real-time ICU monitoring is life-critical, so continuous availability matters most."
+    },
+    {
+      "id": "core-59",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "For which of the following assets is integrity probably the most important security aspect?",
+      "options": [
+        "One frame of a streaming video",
+        "Software that checks the spelling of product descriptions for a retail website",
+        "The color scheme of a marketing website",
+        "The file that contains passwords used to authenticate users"
+      ],
+      "answerIndex": 3,
+      "explanation": "If the password file is altered, authentication fails or is bypassed, so its integrity is paramount."
+    },
+    {
+      "id": "core-60",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "In risk management concepts, a(n) _________ is something a security practitioner might need to protect.",
+      "options": [
+        "Asset",
+        "Likelihood",
+        "Threat",
+        "Vulnerability"
+      ],
+      "answerIndex": 0,
+      "explanation": "An asset is anything of value that needs protecting."
+    },
+    {
+      "id": "core-61",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "In risk management concepts, a(n) ___________ is something or someone that poses a risk to an organization or asset.",
+      "options": [
+        "Asset",
+        "Control",
+        "Fear",
+        "Threat"
+      ],
+      "answerIndex": 3,
+      "explanation": "A threat is the source of potential harm to an asset."
+    },
+    {
+      "id": "core-62",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Of the following, which would probably not be considered a threat?",
+      "options": [
+        "A laptop with sensitive data on it",
+        "An external attacker trying to gain unauthorized access to the environment",
+        "Natural disaster",
+        "Unintentional damage to the system caused by a user"
+      ],
+      "answerIndex": 0,
+      "explanation": "A laptop with sensitive data is an asset (and possibly a vulnerability), not a threat. The other three are threats."
+    },
+    {
+      "id": "core-63",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Which of the following probably poses the most risk?",
+      "options": [
+        "A high-likelihood, high-impact event",
+        "A high-likelihood, low-impact event",
+        "A low-likelihood, high-impact event",
+        "A low-likelihood, low-impact event"
+      ],
+      "answerIndex": 0,
+      "explanation": "Risk combines likelihood and impact; high in both produces the greatest risk."
+    },
+    {
+      "id": "core-64",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Within the organization, who can identify risk?",
+      "options": [
+        "Anyone",
+        "Any security team member",
+        "Senior management",
+        "The security manager"
+      ],
+      "answerIndex": 0,
+      "explanation": "Anyone in the organization can spot and report risk; it isn't limited to security staff."
+    },
+    {
+      "id": "core-65",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Kerpak is asked to assess a particular threat, and he suggests that the best way to counter it would be to purchase and implement a particular security solution. This is an example of _______.",
+      "options": [
+        "Acceptance",
+        "Avoidance",
+        "Mitigation",
+        "Transference"
+      ],
+      "answerIndex": 2,
+      "explanation": "Implementing a control to reduce risk is mitigation."
+    },
+    {
+      "id": "core-66",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Sophia is visiting Las Vegas and decides to put a bet on a particular number on a roulette wheel. This is an example of _________.",
+      "options": [
+        "Acceptance",
+        "Avoidance",
+        "Mitigation",
+        "Transference"
+      ],
+      "answerIndex": 0,
+      "explanation": "Choosing to take on the risk (the bet) knowingly is risk acceptance."
+    },
+    {
+      "id": "core-67",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Phrenal is selling a used laptop online. He values it at $100 but has seen similar laptops sell for more and less. He hopes for $100 or more but is prepared to take less. This is an example of ___________.",
+      "options": [
+        "Risk inversion",
+        "Risk tolerance",
+        "Threat",
+        "Vulnerability"
+      ],
+      "answerIndex": 1,
+      "explanation": "Being prepared to accept a range of outcomes reflects his risk tolerance."
+    },
+    {
+      "id": "core-68",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A software firewall is an application that runs on a device and prevents specific types of traffic from entering that device. This is a type of ________ control.",
+      "options": [
+        "Administrative",
+        "Passive",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 3,
+      "explanation": "Software/technology-based controls are technical (logical) controls."
+    },
+    {
+      "id": "core-69",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "At the airport, there are red lines painted on the ground next to the runway, which prohibit traffic from crossing. This is an example of a(n) ______ control.",
+      "options": [
+        "Administrative",
+        "Critical",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 2,
+      "explanation": "A painted boundary that physically directs/limits movement is a physical control."
+    },
+    {
+      "id": "core-70",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A bollard is a post set securely in the ground in order to prevent a vehicle from entering an area or driving past a certain point. Bollards are an example of ______ controls.",
+      "options": [
+        "Administrative",
+        "Critical",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 2,
+      "explanation": "Bollards physically block vehicles, making them a physical control."
+    },
+    {
+      "id": "core-71",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Druna is a security practitioner tasked with ensuring that laptops are not stolen from the organization's offices. Which sort of security control would probably be best for this purpose?",
+      "options": [
+        "Administrative",
+        "Obverse",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 2,
+      "explanation": "Preventing physical theft is best handled by a physical control (cable locks, secured rooms, etc.)."
+    },
+    {
+      "id": "core-72",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Triffid Corporation has a policy that all employees must receive security awareness instruction before using email, to make employees aware of phishing attempts. What kind of control is this instruction?",
+      "options": [
+        "Administrative",
+        "Finite",
+        "Physical",
+        "Technical"
+      ],
+      "answerIndex": 0,
+      "explanation": "Training, policies, and procedures are administrative (managerial) controls."
+    },
+    {
+      "id": "core-73",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "ISC2 publishes a Common Body of Knowledge (CBK) recognized throughout the industry as useful reference material, and certifications can be issued for demonstrating expertise in it. What kind of document is the Common Body of Knowledge?",
+      "options": [
+        "Guideline",
+        "Policy",
+        "Procedure",
+        "Standard"
+      ],
+      "answerIndex": 3,
+      "explanation": "An industry-recognized body of accepted practice that certifications are measured against functions as a standard."
+    },
+    {
+      "id": "core-74",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "The city of Grampon creates a rule that anyone caught creating and launching malware within the city limits will receive a fine and go to jail. What kind of rule is this?",
+      "options": [
+        "Law",
+        "Policy",
+        "Procedure",
+        "Standard"
+      ],
+      "answerIndex": 0,
+      "explanation": "A government rule enforced by fines and jail is a law."
+    },
+    {
+      "id": "core-75",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "The Triffid Corporation publishes a strategic overview of the company's intent to secure all the data it possesses, signed by senior management. What kind of document is this?",
+      "options": [
+        "Law",
+        "Policy",
+        "Procedure",
+        "Standard"
+      ],
+      "answerIndex": 1,
+      "explanation": "A high-level, management-endorsed statement of intent is a policy."
+    },
+    {
+      "id": "core-76",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Grampon municipal code requires companies operating within city limits to have processes ensuring employees are safe with hazardous materials. Triffid creates a checklist employees must follow when working with hazardous materials. The municipal code is a _____, and the Triffid checklist is a ________.",
+      "options": [
+        "Law, procedure",
+        "Law, standard",
+        "Policy, law",
+        "Standard, law"
+      ],
+      "answerIndex": 0,
+      "explanation": "A government requirement is a law; a step-by-step checklist employees follow is a procedure."
+    },
+    {
+      "id": "core-77",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "The PCI Council (made up of major credit card providers) issues rules that merchants must follow if they choose to accept credit card payments, describing best practices for securing card processing and customer data. This set of rules is a _____.",
+      "options": [
+        "Policy",
+        "Law",
+        "Procedure",
+        "Standard"
+      ],
+      "answerIndex": 3,
+      "explanation": "An industry-mandated set of required practices like PCI DSS is a standard, not a law (it isn't government-issued)."
+    },
+    {
+      "id": "core-78",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Hoshi, an ISC2 member, is asked to recommend a firewall for Triffid to acquire. Hoshi's cousin works for a firewall vendor that happens to make the best firewall available. What should Hoshi do?",
+      "options": [
+        "Disclose the relationship, but recommend the vendor/product",
+        "Ask to be recused from the task",
+        "Recommend a different vendor/product",
+        "Recommend the cousin's product"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ethical course is to disclose the conflict of interest while still making the recommendation that best serves the employer."
+    },
+    {
+      "id": "core-79",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Olaf, an ISC2 member and security analyst, is asked by auditors whether Triffid is following a particular security practice. Olaf knows Triffid is not adhering to that standard in this situation, but saying so reflects poorly on Triffid. What should Olaf do?",
+      "options": [
+        "Ask ISC2 for guidance",
+        "Ask supervisors for guidance",
+        "Lie to the auditors",
+        "Tell the auditors the truth"
+      ],
+      "answerIndex": 3,
+      "explanation": "The ISC2 Code of Ethics requires acting honorably and honestly; Olaf must tell the auditors the truth."
+    },
+    {
+      "id": "core-80",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Aphrodite, an ISC2 member and data analyst, discovers while reviewing logs that another Triffid employee is violating the acceptable use policy by watching streaming videos during work hours. What should Aphrodite do?",
+      "options": [
+        "Inform ISC2",
+        "Inform law enforcement",
+        "Inform Triffid management",
+        "Nothing"
+      ],
+      "answerIndex": 2,
+      "explanation": "An internal AUP violation is an internal matter; Aphrodite should report it to Triffid management, not law enforcement or ISC2."
+    },
+    {
+      "id": "core-81",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Glena is an ISC2 member. Glena receives an email from a company offering a set of answers for an ISC2 certification exam. What should Glena do?",
+      "options": [
+        "Inform Glena's employer",
+        "Inform ISC2",
+        "Inform law enforcement",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "Cheating/exam-answer schemes undermine certification integrity; Glena should report it to ISC2."
+    },
+    {
+      "id": "core-82",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "You are reviewing log data from a router; there is an entry that shows a user sent traffic through the router at 11:45 am, local time, yesterday. This is an example of a(n) _______.",
+      "options": [
+        "Attack",
+        "Event",
+        "Inform ISC2",
+        "Threat"
+      ],
+      "answerIndex": 1,
+      "explanation": "Any observable occurrence on a system or network is an event. Not every event is an attack or incident."
+    },
+    {
+      "id": "core-83",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "An attacker outside the organization attempts to gain access to the organization's internal files. This is an example of a(n) ______.",
+      "options": [
+        "Disclosure",
+        "Exploit",
+        "Intrusion",
+        "Publication"
+      ],
+      "answerIndex": 2,
+      "explanation": "An attempt to gain unauthorized access is an intrusion."
+    },
+    {
+      "id": "core-84",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Who approves the incident response policy?",
+      "options": [
+        "Investors",
+        "ISC2",
+        "Senior management",
+        "The security manager"
+      ],
+      "answerIndex": 2,
+      "explanation": "Policies are approved by senior management, who own organizational governance and accountability."
+    },
+    {
+      "id": "core-85",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Which of the following are not typically involved in incident detection?",
+      "options": [
+        "Automated Tools",
+        "Regulators",
+        "Security Analysis",
+        "Users"
+      ],
+      "answerIndex": 1,
+      "explanation": "Detection comes from tools, analysts, and users. Regulators are not part of detecting incidents."
+    },
+    {
+      "id": "core-86",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the risk associated with resuming full normal operations too soon after a disaster recovery (DR) effort?",
+      "options": [
+        "Investors might be upset",
+        "Regulators might disapprove",
+        "The danger posed by the disaster might still be present",
+        "The organization could save money"
+      ],
+      "answerIndex": 2,
+      "explanation": "Returning too early risks exposing people and systems to a hazard that hasn't fully passed."
+    },
+    {
+      "id": "core-87",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the goal of Business Continuity efforts?",
+      "options": [
+        "Ensure all IT systems continue to operate",
+        "Impress customers",
+        "Keep critical business functions operational",
+        "Save money"
+      ],
+      "answerIndex": 2,
+      "explanation": "Business continuity focuses on keeping critical business functions running during disruption, not every system."
+    },
+    {
+      "id": "core-88",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Which of the following is likely to be included in the business continuity plan?",
+      "options": [
+        "Alternate work areas for personnel affected by a natural disaster",
+        "Last year's budget information",
+        "Log data from all systems",
+        "The organization's strategic security approach"
+      ],
+      "answerIndex": 0,
+      "explanation": "A BCP includes provisions like alternate work sites for affected staff so operations can continue."
+    },
+    {
+      "id": "core-89",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the most important goal of a business continuity effort?",
+      "options": [
+        "Ensure all business activities are preserved during a potential disaster",
+        "Ensure all IT systems function during a potential interruption",
+        "Ensure the organization survives a disaster",
+        "Preserve health and human safety"
+      ],
+      "answerIndex": 3,
+      "explanation": "Human safety is always the top priority, ahead of systems or even organizational survival."
+    },
+    {
+      "id": "core-90",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the overall objective of a disaster recovery (DR) effort?",
+      "options": [
+        "Enhance public perception of the organization",
+        "Preserve critical business functions during a disaster",
+        "Return to normal, full operations",
+        "Save money"
+      ],
+      "answerIndex": 2,
+      "explanation": "DR aims to restore systems and operations back to normal after a disruptive event."
+    },
+    {
+      "id": "core-91",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the risk associated with delaying the resumption of full normal operations after a disaster?",
+      "options": [
+        "A new disaster might emerge",
+        "Competition",
+        "People might be put in danger",
+        "The impact of running alternate operations for extended periods"
+      ],
+      "answerIndex": 3,
+      "explanation": "Operating in alternate/degraded mode for too long has its own costs and risks that accumulate over time."
+    },
+    {
+      "id": "core-92",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Gelbi is a Technical Support analyst who sometimes is required to install or remove software. Which of the following could be used to describe Gelbi's account?",
+      "options": [
+        "External",
+        "Internal",
+        "Privileged",
+        "User"
+      ],
+      "answerIndex": 2,
+      "explanation": "The ability to install/remove software requires elevated rights, making it a privileged account."
+    },
+    {
+      "id": "core-93",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Guillermo logs onto a system and opens a document file. In this example, Guillermo is:",
+      "options": [
+        "The object",
+        "The process",
+        "The software",
+        "The subject"
+      ],
+      "answerIndex": 3,
+      "explanation": "The subject is the active entity (user/process) requesting access; the document is the object."
+    },
+    {
+      "id": "core-94",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which of the following is not an appropriate control to add to privileged accounts?",
+      "options": [
+        "Increased auditing",
+        "Increased logging",
+        "Multi-factor authentication",
+        "Security deposit"
+      ],
+      "answerIndex": 3,
+      "explanation": "A security deposit is not an access control. Increased auditing, logging, and MFA are all appropriate for privileged accounts."
+    },
+    {
+      "id": "core-95",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Prachi is allowed to add or delete users, but not read or modify the data in the database. When Prachi logs on, an access control list (ACL) checks her permissions. In this situation, what is the ACL?",
+      "options": [
+        "The firmware",
+        "The object",
+        "The rule",
+        "The subject"
+      ],
+      "answerIndex": 2,
+      "explanation": "The ACL defines what is permitted, so it functions as the rule in the access control relationship."
+    },
+    {
+      "id": "core-96",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Prachi is allowed to add or delete users, but not read or modify the data in the database. When Prachi logs on, an access control list (ACL) checks her permissions. In this situation, what is Prachi?",
+      "options": [
+        "The file",
+        "The object",
+        "The rule",
+        "The subject"
+      ],
+      "answerIndex": 3,
+      "explanation": "Prachi is the active entity requesting access, so she is the subject."
+    },
+    {
+      "id": "core-97",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Larry and Fern both work in the data center. To enter, they must both present their own different keys to the key reader before the door opens. Which security concept is being applied?",
+      "options": [
+        "Defense in depth",
+        "Dual control",
+        "Least privilege",
+        "Segregation of duties"
+      ],
+      "answerIndex": 1,
+      "explanation": "Requiring two people to act together to perform a function is dual control."
+    },
+    {
+      "id": "core-98",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Which of the following is a biometric access control mechanism?",
+      "options": [
+        "A badge reader",
+        "A copper key",
+        "A door locked by a voiceprint identifier",
+        "A fence with razor tape on it"
+      ],
+      "answerIndex": 2,
+      "explanation": "A voiceprint is a biometric (something you are). Badges and keys are something you have."
+    },
+    {
+      "id": "core-99",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "All visitors to a secure facility should be _______.",
+      "options": [
+        "Escorted",
+        "Fingerprinted",
+        "Photographed",
+        "Required to wear protective equipment"
+      ],
+      "answerIndex": 0,
+      "explanation": "Visitors to secure areas should be escorted at all times to prevent unauthorized access."
+    },
+    {
+      "id": "core-100",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "All of the following are typically perceived as drawbacks to biometric systems, except:",
+      "options": [
+        "Lack of accuracy",
+        "Legality",
+        "Potential privacy concerns",
+        "Retention of physiological data past the point of employment"
+      ],
+      "answerIndex": 1,
+      "explanation": "Accuracy issues, privacy concerns, and retention of biometric data are common drawbacks. Legality is generally not considered a drawback of biometrics."
+    }
+  ],
+  "advancedA": [
+    {
+      "id": "advA-1",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A company decides to stop offering a legacy online service entirely because the cost of securing it far exceeds the revenue it generates. Which risk treatment does this represent?",
+      "options": [
+        "Risk acceptance",
+        "Risk avoidance",
+        "Risk mitigation",
+        "Risk transference"
+      ],
+      "answerIndex": 1,
+      "explanation": "Eliminating the activity that creates the risk is risk avoidance. Mitigation reduces risk while keeping the activity; transference shifts it (e.g., insurance); acceptance keeps it as-is."
+    },
+    {
+      "id": "advA-2",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "An organization purchases a cyber-insurance policy to cover financial losses from a potential data breach. This is best described as which form of risk treatment?",
+      "options": [
+        "Avoidance",
+        "Mitigation",
+        "Transference",
+        "Acceptance"
+      ],
+      "answerIndex": 2,
+      "explanation": "Shifting the financial impact to a third party such as an insurer is risk transference. The underlying risk still exists."
+    },
+    {
+      "id": "advA-3",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A warning sign reading 'Premises monitored by 24/7 video surveillance' is posted at an entrance. By function, this control is primarily:",
+      "options": [
+        "Preventive",
+        "Detective",
+        "Deterrent",
+        "Corrective"
+      ],
+      "answerIndex": 2,
+      "explanation": "A sign that discourages someone from attempting an act is a deterrent control. The camera that records is detective; a lock would be preventive."
+    },
+    {
+      "id": "advA-4",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "After a ransomware incident, an organization restores systems from clean backups to resume operations. By function, restoring from backup is which type of control?",
+      "options": [
+        "Preventive",
+        "Detective",
+        "Corrective",
+        "Deterrent"
+      ],
+      "answerIndex": 2,
+      "explanation": "A corrective control restores systems to normal after an incident. Backups used for recovery are corrective."
+    },
+    {
+      "id": "advA-5",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A required multifactor authentication control cannot be deployed on a legacy system, so the team adds enhanced logging and restricts the system to an isolated network segment instead. The added measures are best described as:",
+      "options": [
+        "Compensating controls",
+        "Detective controls",
+        "Deterrent controls",
+        "Physical controls"
+      ],
+      "answerIndex": 0,
+      "explanation": "When a primary control is not feasible, alternative measures that provide a comparable level of protection are compensating controls."
+    },
+    {
+      "id": "advA-6",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Before building its security program, an organization's leadership thoroughly researches the laws and regulations that apply to its industry. This research activity is an example of:",
+      "options": [
+        "Due care",
+        "Due diligence",
+        "Separation of duties",
+        "Defense in depth"
+      ],
+      "answerIndex": 1,
+      "explanation": "Due diligence is the investigation and ongoing research to understand obligations and risks. Due care is acting on that knowledge by implementing and maintaining controls."
+    },
+    {
+      "id": "advA-7",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Which statement best captures the first canon of the ISC2 Code of Ethics?",
+      "options": [
+        "Provide diligent and competent service to principals",
+        "Act honorably, honestly, justly, responsibly, and legally",
+        "Protect society, the common good, necessary public trust and confidence, and the infrastructure",
+        "Advance and protect the profession"
+      ],
+      "answerIndex": 2,
+      "explanation": "The canons are applied in order, and the first is to protect society, the common good, necessary public trust and confidence, and the infrastructure."
+    },
+    {
+      "id": "advA-8",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "An asset is valued at $50,000. A particular threat is expected to cause 20% damage to the asset each time it occurs, and it is expected to occur twice per year. What is the annualized loss expectancy (ALE)?",
+      "options": [
+        "$10,000",
+        "$20,000",
+        "$50,000",
+        "$5,000"
+      ],
+      "answerIndex": 1,
+      "explanation": "SLE = AV x EF = $50,000 x 0.20 = $10,000. ALE = SLE x ARO = $10,000 x 2 = $20,000."
+    },
+    {
+      "id": "advA-9",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A hospital stores patients' diagnostic records. In the United States, which category of data and corresponding obligation is most directly implicated?",
+      "options": [
+        "PII protected primarily under PCI DSS",
+        "PHI protected primarily under HIPAA",
+        "Proprietary data protected under GDPR",
+        "Public data with no specific obligation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Patient health information is PHI, which in the US is governed primarily by HIPAA. PCI DSS covers cardholder data; GDPR is an EU regulation."
+    },
+    {
+      "id": "advA-10",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Layering a firewall, network segmentation, endpoint anti-malware, and user training so that no single failure exposes the whole environment is the security principle known as:",
+      "options": [
+        "Least privilege",
+        "Defense in depth",
+        "Separation of duties",
+        "Zero trust"
+      ],
+      "answerIndex": 1,
+      "explanation": "Using multiple, overlapping layers of controls so one failure does not compromise everything is defense in depth."
+    },
+    {
+      "id": "advA-11",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "After implementing controls, some risk still remains. The risk that is left over once controls are applied is called:",
+      "options": [
+        "Inherent risk",
+        "Residual risk",
+        "Total risk",
+        "Transferred risk"
+      ],
+      "answerIndex": 1,
+      "explanation": "Residual risk is what remains after controls are applied. Inherent risk is the risk before any controls."
+    },
+    {
+      "id": "advA-12",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A document that mandates a specific minimum password length and complexity that all systems must enforce is best classified as a:",
+      "options": [
+        "Policy",
+        "Guideline",
+        "Standard",
+        "Procedure"
+      ],
+      "answerIndex": 2,
+      "explanation": "A standard specifies mandatory, uniform requirements (such as a specific password length). A policy states high-level intent; a guideline is a recommendation; a procedure is step-by-step."
+    },
+    {
+      "id": "advA-13",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A bank requires that the employee who initiates a wire transfer cannot also be the one who approves it. This requirement is an example of:",
+      "options": [
+        "Least privilege",
+        "Separation of duties",
+        "Defense in depth",
+        "Need to know"
+      ],
+      "answerIndex": 1,
+      "explanation": "Splitting a sensitive task so that no single person can complete it alone is separation of duties, which reduces fraud and error."
+    },
+    {
+      "id": "advA-14",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "A business determines it can tolerate losing at most 1 hour of transaction data if a system fails. This 1-hour figure defines the system's:",
+      "options": [
+        "Recovery time objective (RTO)",
+        "Recovery point objective (RPO)",
+        "Maximum tolerable downtime (MTD)",
+        "Mean time to repair (MTTR)"
+      ],
+      "answerIndex": 1,
+      "explanation": "RPO is the maximum acceptable amount of data loss measured in time. RTO is how quickly the system must be restored."
+    },
+    {
+      "id": "advA-15",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "A critical application must be back in operation within 4 hours of an outage to avoid serious business harm. The 4-hour target is the:",
+      "options": [
+        "Recovery point objective (RPO)",
+        "Recovery time objective (RTO)",
+        "Annualized rate of occurrence (ARO)",
+        "Service level agreement (SLA)"
+      ],
+      "answerIndex": 1,
+      "explanation": "RTO is the targeted duration within which a process or system must be restored after a disruption."
+    },
+    {
+      "id": "advA-16",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "During incident response, the team disconnects an infected server from the network to stop malware from spreading to other systems. Which phase does this action belong to?",
+      "options": [
+        "Detection and analysis",
+        "Containment",
+        "Eradication",
+        "Post-incident activity"
+      ],
+      "answerIndex": 1,
+      "explanation": "Isolating affected systems to limit the spread or impact is containment. Eradication is removing the cause; recovery restores systems."
+    },
+    {
+      "id": "advA-17",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "What is the primary purpose of conducting a Business Impact Analysis (BIA)?",
+      "options": [
+        "To assign blame after an incident occurs",
+        "To identify critical functions and the impact of their disruption over time",
+        "To configure backup software schedules",
+        "To purchase the cheapest recovery option available"
+      ],
+      "answerIndex": 1,
+      "explanation": "A BIA identifies the organization's critical functions and quantifies the impact of their loss over time, which drives recovery priorities and objectives like RTO/RPO."
+    },
+    {
+      "id": "advA-18",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "After an incident is fully resolved, the response team holds a meeting to document what happened, what worked, and what should change. This is part of which incident response phase?",
+      "options": [
+        "Preparation",
+        "Containment, eradication, and recovery",
+        "Post-incident activity",
+        "Detection and analysis"
+      ],
+      "answerIndex": 2,
+      "explanation": "Reviewing the incident to capture lessons learned and improve future response is the post-incident activity phase."
+    },
+    {
+      "id": "advA-19",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A login system requires a password plus a one-time code from a hardware token. Which best describes this authentication?",
+      "options": [
+        "Single-factor, because both are entered at one screen",
+        "Multifactor, combining something you know and something you have",
+        "Multifactor, combining two things you know",
+        "Single sign-on"
+      ],
+      "answerIndex": 1,
+      "explanation": "A password (something you know) plus a hardware token (something you have) uses two different factor categories, so it is true multifactor authentication."
+    },
+    {
+      "id": "advA-20",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Two systems both require 'a password and a security question answer' to log in. Why is this NOT considered multifactor authentication?",
+      "options": [
+        "Because passwords are inherently weak",
+        "Because both items are the same factor type (something you know)",
+        "Because security questions are biometric",
+        "Because it uses single sign-on"
+      ],
+      "answerIndex": 1,
+      "explanation": "Both a password and a security question are 'something you know.' True MFA requires factors from different categories (know, have, are)."
+    },
+    {
+      "id": "advA-21",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "When comparing two biometric systems, which single metric best indicates overall accuracy, where a lower value is better?",
+      "options": [
+        "False acceptance rate (FAR)",
+        "False rejection rate (FRR)",
+        "Crossover error rate (CER)",
+        "Throughput rate"
+      ],
+      "answerIndex": 2,
+      "explanation": "The crossover error rate (where FAR equals FRR) is the standard single measure of biometric accuracy; a lower CER means a more accurate system."
+    },
+    {
+      "id": "advA-22",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "From a security standpoint, which biometric error is generally the most dangerous because it grants access to the wrong person?",
+      "options": [
+        "False rejection (Type I)",
+        "False acceptance (Type II)",
+        "Enrollment failure",
+        "Throughput delay"
+      ],
+      "answerIndex": 1,
+      "explanation": "A false acceptance (Type II error) admits an unauthorized person, which is the more serious security failure. A false rejection merely inconveniences a legitimate user."
+    },
+    {
+      "id": "advA-23",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "To stop an unauthorized person from slipping in behind an authorized employee (tailgating), an organization installs a two-door entry system where the first door must close before the second opens. This is a(n):",
+      "options": [
+        "Turnstile",
+        "Access control vestibule (mantrap)",
+        "Bollard",
+        "Faraday cage"
+      ],
+      "answerIndex": 1,
+      "explanation": "An access control vestibule, also called a mantrap, uses interlocking doors to allow only one authenticated person through at a time, preventing tailgating/piggybacking."
+    },
+    {
+      "id": "advA-24",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "When an employee is terminated, the single most important access control action to perform promptly is to:",
+      "options": [
+        "Archive their email for one year",
+        "Deprovision (disable/remove) their accounts and access",
+        "Change the office Wi-Fi password",
+        "Update the org chart"
+      ],
+      "answerIndex": 1,
+      "explanation": "Promptly disabling or removing a departing user's accounts and access (deprovisioning) prevents continued or malicious access."
+    },
+    {
+      "id": "advA-25",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "An access model grants permissions dynamically based on conditions such as time of day, device type, and user department. Which model is this?",
+      "options": [
+        "Discretionary access control (DAC)",
+        "Mandatory access control (MAC)",
+        "Role-based access control (RBAC)",
+        "Attribute-based access control (ABAC)"
+      ],
+      "answerIndex": 3,
+      "explanation": "ABAC evaluates multiple attributes (user, resource, environment) to make access decisions, enabling fine-grained, context-aware control."
+    },
+    {
+      "id": "advA-26",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "In a defense agency, files are labeled Top Secret/Secret/Confidential and users are granted clearances; the system enforces access regardless of the file owner's wishes. This is:",
+      "options": [
+        "Discretionary access control (DAC)",
+        "Mandatory access control (MAC)",
+        "Role-based access control (RBAC)",
+        "Rule-based access control"
+      ],
+      "answerIndex": 1,
+      "explanation": "Classification labels plus clearances enforced by the system, not by the data owner's discretion, define mandatory access control (MAC)."
+    },
+    {
+      "id": "advA-27",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Accountability in access control depends most directly on which combination?",
+      "options": [
+        "Shared accounts and strong encryption",
+        "Unique user identification plus audit logging",
+        "A firewall plus antivirus",
+        "Long passwords alone"
+      ],
+      "answerIndex": 1,
+      "explanation": "To hold individuals accountable, each user needs a unique identity and their actions must be logged. Shared accounts break accountability."
+    },
+    {
+      "id": "advA-28",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A user successfully proves who they are, and the system then checks what resources they are permitted to use. The second step is best described as:",
+      "options": [
+        "Identification",
+        "Authentication",
+        "Authorization",
+        "Accounting"
+      ],
+      "answerIndex": 2,
+      "explanation": "Determining what an authenticated subject is allowed to do is authorization. Authentication proves identity; identification is the claim of identity."
+    },
+    {
+      "id": "advA-29",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A help-desk technician is given the ability to reset passwords but is explicitly prevented from reading the contents of user mailboxes. This restriction reflects which principle?",
+      "options": [
+        "Defense in depth",
+        "Least privilege",
+        "Dual control",
+        "Non-repudiation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Granting only the access needed to perform the job and nothing more is the principle of least privilege."
+    },
+    {
+      "id": "advA-30",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "An administrator needs to remotely manage a server's command line securely over an untrusted network, replacing an older cleartext protocol. Which protocol and port should be used?",
+      "options": [
+        "Telnet on port 23",
+        "SSH on port 22",
+        "FTP on port 21",
+        "HTTP on port 80"
+      ],
+      "answerIndex": 1,
+      "explanation": "SSH (port 22) encrypts remote administration and replaces Telnet (port 23), which transmits credentials in cleartext."
+    },
+    {
+      "id": "advA-31",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A web application must protect data in transit between the browser and server. Which protocol and port are appropriate?",
+      "options": [
+        "HTTP on port 80",
+        "HTTPS on port 443",
+        "SMTP on port 25",
+        "SNMP on port 161"
+      ],
+      "answerIndex": 1,
+      "explanation": "HTTPS (HTTP over TLS) on port 443 encrypts web traffic in transit, unlike plain HTTP on port 80."
+    },
+    {
+      "id": "advA-32",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "What is the key functional difference between an IDS and an IPS?",
+      "options": [
+        "An IDS encrypts traffic; an IPS does not",
+        "An IDS only detects and alerts, while an IPS can actively block malicious traffic",
+        "An IPS works only on hosts; an IDS only on networks",
+        "There is no difference"
+      ],
+      "answerIndex": 1,
+      "explanation": "An intrusion detection system detects and alerts, while an intrusion prevention system sits inline and can take action to block the traffic."
+    },
+    {
+      "id": "advA-33",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which wireless security protocol currently provides the strongest protection for a Wi-Fi network?",
+      "options": [
+        "WEP",
+        "WPA",
+        "WPA2",
+        "WPA3"
+      ],
+      "answerIndex": 3,
+      "explanation": "WPA3 is the most current and secure Wi-Fi protocol. WEP and WPA are outdated and weak; WPA2 is older than WPA3."
+    },
+    {
+      "id": "advA-34",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A company places its servers into separate VLANs so that a compromise in one department cannot easily reach another. This practice is best described as:",
+      "options": [
+        "Network segmentation",
+        "Port forwarding",
+        "Load balancing",
+        "Tunneling"
+      ],
+      "answerIndex": 0,
+      "explanation": "Dividing a network into isolated segments (e.g., via VLANs) to limit lateral movement is network segmentation."
+    },
+    {
+      "id": "advA-35",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A signature-based intrusion detection system has which notable limitation compared to an anomaly-based system?",
+      "options": [
+        "It generates far more false positives",
+        "It cannot detect previously unknown (zero-day) attacks without a matching signature",
+        "It cannot inspect network traffic",
+        "It only works on encrypted traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "Signature-based detection relies on known patterns, so it struggles with novel/zero-day attacks. Anomaly-based detection can flag the unknown but tends to produce more false positives."
+    },
+    {
+      "id": "advA-36",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which statement best summarizes the core idea of a Zero Trust architecture?",
+      "options": [
+        "Trust all traffic that originates inside the perimeter",
+        "Never trust, always verify, regardless of network location",
+        "Encrypt only external traffic",
+        "Allow access based on IP address alone"
+      ],
+      "answerIndex": 1,
+      "explanation": "Zero Trust assumes no implicit trust based on network location and continuously verifies every access request."
+    },
+    {
+      "id": "advA-37",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Before allowing a laptop onto the corporate network, a system checks that it has current patches and antivirus, and quarantines it if not. Which technology performs this?",
+      "options": [
+        "Network Access Control (NAC)",
+        "Network Address Translation (NAT)",
+        "A content delivery network (CDN)",
+        "A reverse proxy"
+      ],
+      "answerIndex": 0,
+      "explanation": "NAC evaluates device posture (patches, configuration, antivirus) and enforces policy before granting network access."
+    },
+    {
+      "id": "advA-38",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "An attacker secretly positions themselves between a user and a banking site, relaying and possibly altering the traffic. This is a(n):",
+      "options": [
+        "Denial-of-service attack",
+        "On-path (man-in-the-middle) attack",
+        "SQL injection",
+        "Brute-force attack"
+      ],
+      "answerIndex": 1,
+      "explanation": "Intercepting and potentially modifying communications between two parties is an on-path (man-in-the-middle) attack."
+    },
+    {
+      "id": "advA-39",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which port is used by DNS, the service that resolves domain names to IP addresses?",
+      "options": [
+        "Port 25",
+        "Port 53",
+        "Port 110",
+        "Port 443"
+      ],
+      "answerIndex": 1,
+      "explanation": "DNS primarily uses port 53. Port 25 is SMTP, 110 is POP3, and 443 is HTTPS."
+    },
+    {
+      "id": "advA-40",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "At which layer of the OSI model does IPsec primarily operate to provide a secure VPN tunnel?",
+      "options": [
+        "Application layer",
+        "Transport layer",
+        "Network layer",
+        "Physical layer"
+      ],
+      "answerIndex": 2,
+      "explanation": "IPsec operates at the network layer (Layer 3), securing IP packets. TLS, by contrast, operates higher up near the transport/application layers."
+    },
+    {
+      "id": "advA-41",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "An organization is overwhelmed by traffic from thousands of compromised devices across the Internet, making its website unreachable. Which control most directly helps absorb or filter this?",
+      "options": [
+        "A host-based IDS on each workstation",
+        "A DDoS mitigation/scrubbing service",
+        "Full-disk encryption",
+        "A password policy"
+      ],
+      "answerIndex": 1,
+      "explanation": "A distributed denial-of-service flood is best countered with DDoS mitigation/scrubbing services (and upstream filtering), which absorb or filter the malicious volume."
+    },
+    {
+      "id": "advA-42",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Which pairing of cryptographic algorithm to type is correct?",
+      "options": [
+        "AES is asymmetric; RSA is symmetric",
+        "AES is symmetric; RSA is asymmetric",
+        "Both AES and RSA are hashing algorithms",
+        "SHA-256 is symmetric encryption"
+      ],
+      "answerIndex": 1,
+      "explanation": "AES is a symmetric (shared-key) cipher; RSA is asymmetric (public/private key). SHA-256 is a hashing algorithm, not encryption."
+    },
+    {
+      "id": "advA-43",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "To protect data on laptops in case they are lost or stolen, which control most directly addresses the risk?",
+      "options": [
+        "Full-disk encryption (data at rest)",
+        "TLS for web browsing (data in transit)",
+        "A network firewall",
+        "A strong Wi-Fi password"
+      ],
+      "answerIndex": 0,
+      "explanation": "Encrypting the stored data (data at rest) via full-disk encryption protects information if the device is lost or stolen."
+    },
+    {
+      "id": "advA-44",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Why is hashing, rather than encryption, used to verify that a downloaded file has not been altered?",
+      "options": [
+        "Hashing hides the file contents",
+        "Hashing is reversible so the file can be recovered",
+        "A hash is a fixed-length value that changes if the data changes and is not meant to be reversed",
+        "Hashing requires a shared secret key"
+      ],
+      "answerIndex": 2,
+      "explanation": "Hashing produces a fixed-length fingerprint that changes if the input changes, and it is one-way (not reversible), making it ideal for integrity verification."
+    },
+    {
+      "id": "advA-45",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "An organization is disposing of solid-state drives (SSDs) that held sensitive data. Which sanitization method is appropriate, given how SSDs store data?",
+      "options": [
+        "Degaussing",
+        "Cryptographic erase or physical destruction",
+        "Single-pass overwrite of one sector",
+        "Defragmentation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Degaussing works on magnetic media, not flash-based SSDs. For SSDs, cryptographic erase or physical destruction is appropriate."
+    },
+    {
+      "id": "advA-46",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What is the primary purpose of a formal change management process?",
+      "options": [
+        "To allow any administrator to make changes instantly",
+        "To ensure changes are reviewed, approved, tested, and documented before implementation",
+        "To eliminate the need for backups",
+        "To replace the incident response plan"
+      ],
+      "answerIndex": 1,
+      "explanation": "Change management ensures modifications are evaluated, authorized, tested, and recorded, reducing the chance that a change introduces instability or vulnerabilities."
+    },
+    {
+      "id": "advA-47",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Disabling unnecessary services, closing unused ports, and removing default accounts on a server is collectively known as:",
+      "options": [
+        "System hardening (least functionality)",
+        "Load balancing",
+        "Tokenization",
+        "Data masking"
+      ],
+      "answerIndex": 0,
+      "explanation": "Reducing a system to only the functions it needs (least functionality) by removing or disabling the rest is system hardening, which shrinks the attack surface."
+    },
+    {
+      "id": "advA-48",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "A security team uses a tool that collects logs from firewalls, servers, and endpoints, then correlates events to flag a possible coordinated attack. This tool is a:",
+      "options": [
+        "DLP system",
+        "SIEM",
+        "VPN concentrator",
+        "Load balancer"
+      ],
+      "answerIndex": 1,
+      "explanation": "A SIEM aggregates and correlates log data from many sources to detect and report potential security incidents."
+    },
+    {
+      "id": "advA-49",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Two parties who have never met need to securely agree on a key to encrypt a large data transfer. Which approach is typically used?",
+      "options": [
+        "Share the symmetric key over email in cleartext",
+        "Use asymmetric cryptography to exchange/establish a symmetric session key",
+        "Use a hash of the data as the key",
+        "Disable encryption to simplify the transfer"
+      ],
+      "answerIndex": 1,
+      "explanation": "Asymmetric cryptography is commonly used to securely exchange or establish a symmetric session key, which then efficiently encrypts the bulk data."
+    },
+    {
+      "id": "advA-50",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What is the most appropriate method for disposing of paper documents that contain sensitive personal information?",
+      "options": [
+        "Recycling them in the open bin",
+        "Cross-cut shredding",
+        "Stacking them for reuse as scrap",
+        "Storing them indefinitely"
+      ],
+      "answerIndex": 1,
+      "explanation": "Cross-cut shredding destroys paper records so the information cannot be reconstructed, which is appropriate for sensitive documents."
+    }
+  ],
+  "advancedB": [
+    {
+      "id": "advB-1",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "An employee accidentally emails a spreadsheet of customers' Social Security numbers to the wrong external recipient. Which element of the CIA triad has been most directly compromised?",
+      "options": [
+        "Integrity",
+        "Availability",
+        "Confidentiality",
+        "Non-repudiation"
+      ],
+      "answerIndex": 2,
+      "explanation": "Unauthorized disclosure of sensitive data is a loss of confidentiality. Integrity is unauthorized change; availability is access to data when needed."
+    },
+    {
+      "id": "advB-2",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "To prevent outages, a company deploys redundant servers with automatic failover so its application stays reachable even if one server fails. This primarily supports which security objective?",
+      "options": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authentication"
+      ],
+      "answerIndex": 2,
+      "explanation": "Redundancy and failover keep services accessible, which supports availability."
+    },
+    {
+      "id": "advB-3",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A facility installs bright perimeter lighting and posts a clearly visible security guard at the gate. By function, these measures act primarily as which type of control?",
+      "options": [
+        "Detective",
+        "Deterrent",
+        "Corrective",
+        "Compensating"
+      ],
+      "answerIndex": 1,
+      "explanation": "Visible measures meant to discourage someone from attempting an attack are deterrent controls."
+    },
+    {
+      "id": "advB-4",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A security analyst reviews system audit logs each week to identify unusual login patterns after they occur. By function, this activity is which type of control?",
+      "options": [
+        "Preventive",
+        "Detective",
+        "Deterrent",
+        "Directive"
+      ],
+      "answerIndex": 1,
+      "explanation": "Reviewing logs to discover events that have already happened is a detective control."
+    },
+    {
+      "id": "advB-5",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A document listing the exact, ordered steps an administrator must follow to configure a new firewall is best classified as a:",
+      "options": [
+        "Policy",
+        "Standard",
+        "Procedure",
+        "Guideline"
+      ],
+      "answerIndex": 2,
+      "explanation": "Step-by-step instructions for performing a task are a procedure. A policy is high-level intent; a standard is a mandatory requirement; a guideline is a recommendation."
+    },
+    {
+      "id": "advB-6",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A data-protection rule issued by a government agency that organizations are legally required to follow, with penalties for non-compliance, is best described as a:",
+      "options": [
+        "Guideline",
+        "Regulation",
+        "Procedure",
+        "Framework"
+      ],
+      "answerIndex": 1,
+      "explanation": "A mandatory, enforceable rule issued by a government/regulatory body is a regulation."
+    },
+    {
+      "id": "advB-7",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "The overall amount of risk an organization's leadership is willing to accept in pursuit of its objectives is known as its:",
+      "options": [
+        "Risk tolerance",
+        "Risk appetite",
+        "Residual risk",
+        "Risk register"
+      ],
+      "answerIndex": 1,
+      "explanation": "Risk appetite is the broad level of risk an organization is willing to take on. Risk tolerance is the acceptable variation around a specific risk."
+    },
+    {
+      "id": "advB-8",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "A team rates each identified risk as High, Medium, or Low based on expert judgment rather than precise dollar figures. This is which type of risk analysis?",
+      "options": [
+        "Quantitative",
+        "Qualitative",
+        "Actuarial",
+        "Statistical"
+      ],
+      "answerIndex": 1,
+      "explanation": "Using descriptive ratings and judgment rather than numeric/monetary values is qualitative risk analysis."
+    },
+    {
+      "id": "advB-9",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Under the ISC2 Code of Ethics, if two canons appear to conflict in a situation, how should a member resolve it?",
+      "options": [
+        "Choose whichever option benefits the employer",
+        "Apply the canons in the order they are listed, with earlier canons taking precedence",
+        "Ignore both canons",
+        "Let the client decide"
+      ],
+      "answerIndex": 1,
+      "explanation": "The canons are applied in order; when they conflict, the earlier-listed canon takes precedence."
+    },
+    {
+      "id": "advB-10",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Under the GDPR, the entity that determines the purposes and means of processing personal data is the:",
+      "options": [
+        "Data processor",
+        "Data controller",
+        "Data subject",
+        "Data custodian"
+      ],
+      "answerIndex": 1,
+      "explanation": "The data controller decides why and how personal data is processed. A processor acts on the controller's behalf; the subject is the individual the data is about."
+    },
+    {
+      "id": "advB-11",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Which security property ensures that a message or document genuinely originates from the source it claims to come from?",
+      "options": [
+        "Availability",
+        "Authenticity",
+        "Redundancy",
+        "Obfuscation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Authenticity confirms that data truly comes from its claimed source."
+    },
+    {
+      "id": "advB-12",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "An organization relies on a single firewall as its only security control. Which principle does this approach most clearly violate?",
+      "options": [
+        "Least privilege",
+        "Defense in depth",
+        "Separation of duties",
+        "Non-repudiation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Depending on one control with no layered backups violates defense in depth."
+    },
+    {
+      "id": "advB-13",
+      "domain": 1,
+      "domainName": "Security Principles",
+      "question": "Mandatory annual security awareness training that teaches staff to avoid clicking suspicious links is an example of which control category?",
+      "options": [
+        "Technical",
+        "Physical",
+        "Administrative",
+        "Corrective"
+      ],
+      "answerIndex": 2,
+      "explanation": "Training, policies, and procedures are administrative (managerial) controls."
+    },
+    {
+      "id": "advB-14",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Which statement about recovery objectives is correct?",
+      "options": [
+        "The recovery time objective (RTO) should never exceed the maximum tolerable downtime (MTD)",
+        "The RPO must always be longer than the RTO",
+        "The MTD is always zero",
+        "RTO and RPO measure the same thing"
+      ],
+      "answerIndex": 0,
+      "explanation": "Systems must be restored within the MTD, so the RTO must be less than or equal to the MTD or the business suffers unacceptable harm."
+    },
+    {
+      "id": "advB-15",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "An alternate processing facility that is fully equipped, running, and able to assume operations almost immediately is a:",
+      "options": [
+        "Cold site",
+        "Warm site",
+        "Hot site",
+        "Mobile site"
+      ],
+      "answerIndex": 2,
+      "explanation": "A hot site is fully operational and ready for near-immediate takeover, at the highest cost."
+    },
+    {
+      "id": "advB-16",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Which alternate site option is typically the least expensive but takes the longest to become operational, since it provides space and utilities but no installed, configured equipment?",
+      "options": [
+        "Hot site",
+        "Warm site",
+        "Cold site",
+        "Cloud site"
+      ],
+      "answerIndex": 2,
+      "explanation": "A cold site has power, cooling, and space but no ready equipment, making it cheapest but slowest to bring online."
+    },
+    {
+      "id": "advB-17",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "Developing the incident response plan, assembling the response team, and training staff before any incident occurs belongs to which incident response phase?",
+      "options": [
+        "Detection and analysis",
+        "Preparation",
+        "Containment",
+        "Recovery"
+      ],
+      "answerIndex": 1,
+      "explanation": "Planning, staffing, and training in advance is the preparation phase."
+    },
+    {
+      "id": "advB-18",
+      "domain": 2,
+      "domainName": "BC, DR & Incident Response",
+      "question": "A team gathers in a conference room to talk through how they would respond to a simulated ransomware attack, without touching production systems. This is a:",
+      "options": [
+        "Full-interruption test",
+        "Tabletop exercise",
+        "Penetration test",
+        "Vulnerability scan"
+      ],
+      "answerIndex": 1,
+      "explanation": "A tabletop exercise is a discussion-based walkthrough of the plan that does not disrupt live operations."
+    },
+    {
+      "id": "advB-19",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Single sign-on (SSO) lets a user reach many applications with one login. What is the main security trade-off of SSO?",
+      "options": [
+        "It requires a separate password for each app",
+        "A single compromised credential can expose all linked applications",
+        "It prevents the use of multifactor authentication",
+        "It works on only one device"
+      ],
+      "answerIndex": 1,
+      "explanation": "SSO concentrates risk: if the one credential is compromised, every connected application is exposed. This is why SSO is often paired with strong MFA."
+    },
+    {
+      "id": "advB-20",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Creating a new hire's accounts and granting their initial permissions on their first day is known as:",
+      "options": [
+        "Deprovisioning",
+        "Provisioning",
+        "Federation",
+        "Recertification"
+      ],
+      "answerIndex": 1,
+      "explanation": "Establishing and granting initial access for a new user is provisioning. Removing it later is deprovisioning."
+    },
+    {
+      "id": "advB-21",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Over several role changes, an employee keeps permissions from each former position and ends up with far more access than their current job requires. This accumulation is called:",
+      "options": [
+        "Least privilege",
+        "Privilege creep",
+        "Separation of duties",
+        "Single sign-on"
+      ],
+      "answerIndex": 1,
+      "explanation": "The gradual buildup of unnecessary access across role changes is privilege creep."
+    },
+    {
+      "id": "advB-22",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "Each quarter, managers review and confirm whether each staff member still needs the access they hold, revoking anything unnecessary. This control is best described as:",
+      "options": [
+        "Access recertification (periodic review)",
+        "Multifactor authentication",
+        "Tokenization",
+        "Mandatory access control"
+      ],
+      "answerIndex": 0,
+      "explanation": "Periodic review and reconfirmation of access rights is access recertification, a key defense against privilege creep."
+    },
+    {
+      "id": "advB-23",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "SAML is most commonly used to enable which capability?",
+      "options": [
+        "Encrypting data at rest",
+        "Federated single sign-on across different organizations",
+        "Scanning for malware",
+        "Compressing network traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "SAML exchanges authentication assertions to enable federated SSO between organizations/domains."
+    },
+    {
+      "id": "advB-24",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A six-digit one-time code generated by an authenticator app on a user's phone represents which authentication factor?",
+      "options": [
+        "Something you know",
+        "Something you have",
+        "Something you are",
+        "Somewhere you are"
+      ],
+      "answerIndex": 1,
+      "explanation": "The phone/app generating the code is a possession factor, so the code is 'something you have.'"
+    },
+    {
+      "id": "advB-25",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "How does 'need to know' differ from 'least privilege'?",
+      "options": [
+        "They are identical",
+        "Need to know restricts access to the specific information required for a task, even when a user's clearance would otherwise allow broader access",
+        "Need to know applies only to physical security",
+        "Least privilege applies only to administrators"
+      ],
+      "answerIndex": 1,
+      "explanation": "Least privilege limits overall rights to what the job needs; need to know further restricts access to the specific information necessary, even if clearance would permit more."
+    },
+    {
+      "id": "advB-26",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "A turnstile at a facility entrance is used primarily to:",
+      "options": [
+        "Encrypt badge data",
+        "Allow only one authenticated person through at a time and deter tailgating",
+        "Authenticate users biometrically",
+        "Record network traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "A turnstile enforces single-person passage and helps prevent tailgating/piggybacking."
+    },
+    {
+      "id": "advB-27",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "In the access control sequence, authorization takes place:",
+      "options": [
+        "Before identification",
+        "After a subject has been successfully authenticated",
+        "Instead of authentication",
+        "Only for physical access"
+      ],
+      "answerIndex": 1,
+      "explanation": "A subject must first be authenticated (identity proven) before the system authorizes what they may do."
+    },
+    {
+      "id": "advB-28",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "In a discretionary access control (DAC) model, who decides which users may access a particular file?",
+      "options": [
+        "The operating system automatically",
+        "The data owner",
+        "A central clearance authority",
+        "The network firewall"
+      ],
+      "answerIndex": 1,
+      "explanation": "In DAC, the owner of the resource has discretion to grant or deny access to others."
+    },
+    {
+      "id": "advB-29",
+      "domain": 3,
+      "domainName": "Access Controls",
+      "question": "In role-based access control (RBAC), permissions are assigned based on:",
+      "options": [
+        "The individual's personal preference",
+        "The user's job role or function",
+        "The time of day only",
+        "Random rotation"
+      ],
+      "answerIndex": 1,
+      "explanation": "RBAC ties permissions to roles; users receive access according to the role they hold."
+    },
+    {
+      "id": "advB-30",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Remote Desktop Protocol (RDP), used to remotely control a Windows desktop, listens on which default port?",
+      "options": [
+        "22",
+        "443",
+        "3389",
+        "53"
+      ],
+      "answerIndex": 2,
+      "explanation": "RDP uses port 3389 by default. Port 22 is SSH, 443 is HTTPS, and 53 is DNS."
+    },
+    {
+      "id": "advB-31",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A mail server transfers outbound email to another mail server using which protocol and default port?",
+      "options": [
+        "POP3 on port 110",
+        "SMTP on port 25",
+        "IMAP on port 143",
+        "SNMP on port 161"
+      ],
+      "answerIndex": 1,
+      "explanation": "SMTP on port 25 handles sending/transferring mail between servers. POP3/IMAP retrieve mail; SNMP manages network devices."
+    },
+    {
+      "id": "advB-32",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "How does a stateful inspection firewall improve on a basic packet-filtering firewall?",
+      "options": [
+        "It encrypts all traffic",
+        "It tracks the state of active connections and allows legitimate return traffic accordingly",
+        "It blocks all inbound and outbound traffic",
+        "It operates only at the physical layer"
+      ],
+      "answerIndex": 1,
+      "explanation": "A stateful firewall maintains a table of active connections, making smarter allow/deny decisions than a stateless packet filter."
+    },
+    {
+      "id": "advB-33",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which encryption standard underpins the security of a properly configured WPA2 wireless network?",
+      "options": [
+        "WEP",
+        "DES",
+        "AES",
+        "MD5"
+      ],
+      "answerIndex": 2,
+      "explanation": "WPA2 uses AES (via CCMP) for strong encryption. WEP is broken, DES is outdated, and MD5 is a hash, not encryption."
+    },
+    {
+      "id": "advB-34",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A highly targeted phishing email crafted to deceive a company's chief financial officer specifically is best categorized as:",
+      "options": [
+        "Spam",
+        "Whaling",
+        "Smishing",
+        "A DDoS attack"
+      ],
+      "answerIndex": 1,
+      "explanation": "Phishing aimed at high-value executives is called whaling. Smishing is SMS-based phishing."
+    },
+    {
+      "id": "advB-35",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A deliberately exposed decoy system with no production value, deployed to lure and study attackers, is called a:",
+      "options": [
+        "Firewall",
+        "Honeypot",
+        "Proxy",
+        "Load balancer"
+      ],
+      "answerIndex": 1,
+      "explanation": "A honeypot is a decoy designed to attract attackers so their behavior can be observed and detected."
+    },
+    {
+      "id": "advB-36",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A remote employee connects to the corporate network over the public Internet using a VPN. The VPN primarily protects the traffic by:",
+      "options": [
+        "Increasing its speed",
+        "Encrypting it within a secure tunnel",
+        "Compressing it",
+        "Caching it locally"
+      ],
+      "answerIndex": 1,
+      "explanation": "A VPN creates an encrypted tunnel so data crossing untrusted networks stays confidential and protected."
+    },
+    {
+      "id": "advB-37",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "An attacker scans a target's IP range to discover which ports and services are open before launching an attack. This activity is part of which phase?",
+      "options": [
+        "Reconnaissance",
+        "Eradication",
+        "Recovery",
+        "Containment"
+      ],
+      "answerIndex": 0,
+      "explanation": "Gathering information about targets, such as scanning for open ports, is reconnaissance."
+    },
+    {
+      "id": "advB-38",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Placing an organization's public web server in a DMZ accomplishes which goal?",
+      "options": [
+        "Eliminating the need for encryption",
+        "Isolating internet-facing systems from the trusted internal network",
+        "Increasing the server's clock speed",
+        "Removing the need for a firewall"
+      ],
+      "answerIndex": 1,
+      "explanation": "A DMZ separates public-facing systems from the internal network so a compromise of the web server does not directly expose internal resources."
+    },
+    {
+      "id": "advB-39",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A network switch decides where to forward a frame based on which type of address?",
+      "options": [
+        "IP address",
+        "MAC address",
+        "Email address",
+        "Port number only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Switches forward frames using MAC (hardware) addresses. Routers use IP addresses."
+    },
+    {
+      "id": "advB-40",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "Which protocol maps an IP address to a hardware (MAC) address on a local network and can be abused through spoofing attacks?",
+      "options": [
+        "DNS",
+        "ARP",
+        "HTTP",
+        "SMTP"
+      ],
+      "answerIndex": 1,
+      "explanation": "ARP resolves IP addresses to MAC addresses on a LAN and is vulnerable to ARP spoofing/poisoning."
+    },
+    {
+      "id": "advB-41",
+      "domain": 4,
+      "domainName": "Network Security",
+      "question": "A user encrypts a file before uploading it to a cloud storage service. This primarily protects the:",
+      "options": [
+        "Availability of the service",
+        "Confidentiality of the data at rest in the cloud",
+        "Speed of the upload",
+        "Integrity of the network"
+      ],
+      "answerIndex": 1,
+      "explanation": "Encrypting before upload keeps the stored data confidential even if the cloud provider or storage is compromised."
+    },
+    {
+      "id": "advB-42",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "A payment system replaces stored credit card numbers with randomly generated surrogate values that have no exploitable meaning if stolen. This technique is:",
+      "options": [
+        "Hashing",
+        "Tokenization",
+        "Compression",
+        "Steganography"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tokenization substitutes sensitive values with meaningless tokens, reducing the value of stolen data."
+    },
+    {
+      "id": "advB-43",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Adding a unique random value to each password before it is hashed primarily defends against:",
+      "options": [
+        "Denial-of-service attacks",
+        "Precomputed (rainbow table) attacks",
+        "Phishing",
+        "Cross-site scripting"
+      ],
+      "answerIndex": 1,
+      "explanation": "A salt makes each hash unique, defeating precomputed rainbow-table lookups."
+    },
+    {
+      "id": "advB-44",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Before rolling a vendor security patch out to production servers, the team first applies it in an isolated test environment. This step is intended to:",
+      "options": [
+        "Avoid the need for backups",
+        "Verify the patch does not break systems before wide deployment",
+        "Permanently prevent all vulnerabilities",
+        "Replace change management"
+      ],
+      "answerIndex": 1,
+      "explanation": "Testing patches first confirms they work and do not cause problems before they reach production."
+    },
+    {
+      "id": "advB-45",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Application allow-listing (whitelisting) strengthens endpoint security by:",
+      "options": [
+        "Blocking only known-bad files by signature",
+        "Permitting only explicitly approved programs to run and blocking all others",
+        "Encrypting the hard drive",
+        "Disabling the firewall"
+      ],
+      "answerIndex": 1,
+      "explanation": "Allow-listing runs only approved software and blocks everything else, which is stricter than blocking only known-bad items."
+    },
+    {
+      "id": "advB-46",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "A documented, approved standard configuration applied as the starting point for every new server is called a:",
+      "options": [
+        "Baseline",
+        "Honeypot",
+        "Hotfix",
+        "Sandbox"
+      ],
+      "answerIndex": 0,
+      "explanation": "A baseline is the approved standard configuration used consistently as a secure starting point."
+    },
+    {
+      "id": "advB-47",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "To let developers test an application without exposing real customer records, an organization replaces real values with realistic but fictitious data. This is:",
+      "options": [
+        "Data masking",
+        "Degaussing",
+        "Tokenized hashing",
+        "Key escrow"
+      ],
+      "answerIndex": 0,
+      "explanation": "Data masking substitutes realistic but fake values so real sensitive data is not exposed in non-production use."
+    },
+    {
+      "id": "advB-48",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "What is the principal advantage of asymmetric encryption over symmetric encryption when two parties have never communicated before?",
+      "options": [
+        "It is faster for large files",
+        "It allows secure key exchange without a pre-shared secret",
+        "It does not use any keys",
+        "It guarantees availability"
+      ],
+      "answerIndex": 1,
+      "explanation": "Asymmetric cryptography solves key distribution: parties can establish keys securely without having shared a secret beforehand. Symmetric encryption is actually faster for bulk data."
+    },
+    {
+      "id": "advB-49",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Forwarding logs from many systems to a separate, hardened central log server primarily helps to:",
+      "options": [
+        "Speed up the network",
+        "Protect log integrity and availability so they can be trusted during investigations",
+        "Encrypt user passwords",
+        "Replace the firewall"
+      ],
+      "answerIndex": 1,
+      "explanation": "Centralizing logs on a secured server keeps them out of an attacker's reach on the source system, preserving their integrity and availability for investigations."
+    },
+    {
+      "id": "advB-50",
+      "domain": 5,
+      "domainName": "Security Operations",
+      "question": "Encrypting backup media ensures that if a backup tape or drive is lost or stolen, the data remains:",
+      "options": [
+        "Available to attackers",
+        "Confidential and unreadable without the key",
+        "Automatically deleted",
+        "Faster to restore"
+      ],
+      "answerIndex": 1,
+      "explanation": "Encryption keeps backup data confidential; without the key, a lost or stolen backup is unreadable."
+    }
+  ]
+}
