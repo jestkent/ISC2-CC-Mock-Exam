@@ -72,6 +72,34 @@ export function Progress({ userId, onBack }: Props) {
           </p>
         </div>
 
+        {(() => {
+          const retired = new Set(masteryRows.filter((r) => r.correct_count >= RETIRE_THRESHOLD).map((r) => r.question_id));
+          const pools: { label: string; ids: string[] }[] = [
+            { label: "Core", ids: QUESTIONS.core.map((q) => q.id) },
+            { label: "Advanced Set A", ids: QUESTIONS.advancedA.map((q) => q.id) },
+            { label: "Advanced Set B", ids: QUESTIONS.advancedB.map((q) => q.id) },
+          ];
+          return (
+            <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
+              <h2 className="font-serif text-xl mb-4">Retired questions</h2>
+              <p className="text-xs text-muted-foreground mb-4">Answered correctly {RETIRE_THRESHOLD}+ times. Excluded from new tests when "Hide mastered" is on.</p>
+              <div className="space-y-2 text-sm">
+                {pools.map((p) => {
+                  const n = p.ids.filter((id) => retired.has(id)).length;
+                  return (
+                    <div key={p.label} className="flex justify-between">
+                      <span>{p.label}</span>
+                      <span className="tabular-nums text-muted-foreground">{n} of {p.ids.length} retired</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
+
+
+
         <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
           <h2 className="font-serif text-xl mb-4">Last 20 exams</h2>
           {last20.length === 0 ? (
