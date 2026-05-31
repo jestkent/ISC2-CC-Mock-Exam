@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Lock, Clock, Zap, BookOpen, BarChart3, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { fetchMastery } from "@/lib/db";
+import { fetchMasteryRows, fetchSettings, saveSettings } from "@/lib/db";
 import { QUESTIONS } from "@/lib/questions";
 import type { ExamState } from "@/lib/exam";
 import { loadInProgress } from "@/lib/exam";
@@ -14,19 +14,32 @@ interface Props {
   onShowProgress: () => void;
 }
 
+const RETIRE_THRESHOLD = 3;
+
 export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: Props) {
   const [masteredCount, setMasteredCount] = useState<number | null>(null);
   const [resume, setResume] = useState<ExamState | null>(null);
+  const [hideMastered, setHideMastered] = useState(false);
 
   useEffect(() => {
-    fetchMastery(userId).then((s) => {
+    (async () => {
+      const [rows, settings] = await Promise.all([
+        fetchMasteryRows(userId),
+        fetchSettings(userId),
+      ]);
       const coreIds = new Set(QUESTIONS.core.map((q) => q.id));
       let n = 0;
-      s.forEach((id) => coreIds.has(id) && n++);
+      rows.forEach((r) => coreIds.has(r.question_id) && n++);
       setMasteredCount(n);
-    });
+      setHideMastered(settings.hide_mastered);
+    })();
     setResume(loadInProgress());
   }, [userId]);
+
+  async function toggleHide(next: boolean) {
+    setHideMastered(next);
+    await saveSettings(userId, next);
+  }
 
   const unlocked = (masteredCount ?? 0) >= QUESTIONS.core.length;
 
