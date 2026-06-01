@@ -69,25 +69,25 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-white/10 sticky top-0 bg-background/95 backdrop-blur z-10">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          <button onClick={onExit} className="p-2 -ml-2 hover:bg-white/5 rounded-lg" title="Exit">
+        <div className="max-w-3xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2">
+          <button onClick={onExit} className="p-2 -ml-1 hover:bg-white/5 rounded-lg shrink-0" title="Exit">
             <X size={18} />
           </button>
-          <div className="text-center flex-1">
-            <div className="text-xs uppercase tracking-widest text-primary">{state.label}</div>
-            <div className="text-xs text-muted-foreground">
+          <div className="text-center flex-1 min-w-0">
+            <div className="text-[10px] sm:text-xs uppercase tracking-widest text-primary truncate">{state.label}</div>
+            <div className="text-[10px] sm:text-xs text-muted-foreground truncate">
               {state.current + 1} / {state.items.length} · {answered} answered
             </div>
           </div>
           {remainingMs !== null ? (
-            <div className={`tabular-nums font-mono px-3 py-1.5 rounded-lg text-sm ${remainingMs < 5 * 60_000 ? "bg-destructive/20 text-destructive" : "bg-white/5"}`}>
+            <div className={`tabular-nums font-mono px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm shrink-0 ${remainingMs < 5 * 60_000 ? "bg-destructive/20 text-destructive" : "bg-white/5"}`}>
               {formatTime(remainingMs)}
             </div>
-          ) : <span className="text-xs text-muted-foreground">untimed</span>}
+          ) : <span className="text-[10px] sm:text-xs text-muted-foreground shrink-0">untimed</span>}
         </div>
       </header>
 
-      <main className="flex-1 px-4 sm:px-6 py-8">
+      <main className="flex-1 px-3 sm:px-6 py-4 sm:py-8">
         <div className="max-w-3xl mx-auto">
           <div className="bg-card text-card-foreground rounded-2xl p-6 sm:p-8 shadow-xl">
             <div className="flex items-center justify-between mb-4">
