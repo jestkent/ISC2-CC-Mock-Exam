@@ -41,7 +41,7 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
     await saveSettings(userId, next);
   }
 
-  const unlocked = (masteredCount ?? 0) >= QUESTIONS.core.length;
+  
 
   return (
     <div className="min-h-screen">
