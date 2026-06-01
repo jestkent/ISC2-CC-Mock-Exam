@@ -134,27 +134,22 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
           />
           <div className="bg-card text-card-foreground rounded-xl p-6 border border-border/30">
             <div className="flex items-center gap-3 mb-3">
-              <span className={`p-2 rounded-lg ${unlocked ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground"}`}>
-                {unlocked ? <BookOpen /> : <Lock />}
+              <span className="p-2 rounded-lg bg-primary/20 text-primary">
+                <BookOpen />
               </span>
               <h3 className="font-serif text-xl">Advanced Exam</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Two 50-question sets, 1 hour each.
-              {!unlocked && (
-                <> Locked — <span className="text-primary">{masteredCount ?? 0}/{QUESTIONS.core.length}</span> to unlock.</>
-              )}
             </p>
             <div className="flex gap-2">
               <button
-                disabled={!unlocked}
                 onClick={() => onStart("advA")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
               >Set A</button>
               <button
-                disabled={!unlocked}
                 onClick={() => onStart("advB")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
               >Set B</button>
             </div>
           </div>
