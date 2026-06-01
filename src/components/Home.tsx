@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Lock, Clock, Zap, BookOpen, BarChart3, LogOut } from "lucide-react";
+import { Clock, Zap, BookOpen, BarChart3, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { fetchMasteryRows, fetchSettings, saveSettings } from "@/lib/db";
 import { QUESTIONS } from "@/lib/questions";
