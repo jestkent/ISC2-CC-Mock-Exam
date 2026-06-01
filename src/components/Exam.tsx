@@ -89,17 +89,17 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
 
       <main className="flex-1 px-3 sm:px-6 py-4 sm:py-8">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-card text-card-foreground rounded-2xl p-6 sm:p-8 shadow-xl">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xs uppercase tracking-wider text-muted-foreground">{item.q.domainName}</span>
+          <div className="bg-card text-card-foreground rounded-2xl p-4 sm:p-8 shadow-xl">
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground truncate">{item.q.domainName}</span>
               <button
                 onClick={toggleFlag}
-                className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border transition ${state.flags[state.current] ? "bg-primary/15 text-primary border-primary/40" : "border-border text-muted-foreground hover:bg-muted"}`}
+                className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border transition shrink-0 ${state.flags[state.current] ? "bg-primary/15 text-primary border-primary/40" : "border-border text-muted-foreground hover:bg-muted"}`}
               >
                 <Flag size={12} /> {state.flags[state.current] ? "Flagged" : "Flag"}
               </button>
             </div>
-            <h2 className="font-serif text-xl sm:text-2xl mb-6 leading-snug">{item.q.question}</h2>
+            <h2 className="font-serif text-lg sm:text-2xl mb-5 sm:mb-6 leading-snug break-words">{item.q.question}</h2>
             <div className="space-y-2">
               {item.optionOrder.map((origIdx, dispIdx) => {
                 const selected = state.answers[state.current] === dispIdx;
@@ -107,12 +107,12 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
                   <button
                     key={dispIdx}
                     onClick={() => setAnswer(dispIdx)}
-                    className={`w-full text-left px-4 py-3 rounded-lg border transition flex items-start gap-3 ${selected ? "border-primary bg-primary/10" : "border-border hover:bg-muted"}`}
+                    className={`w-full text-left px-3 sm:px-4 py-3 rounded-lg border transition flex items-start gap-3 ${selected ? "border-primary bg-primary/10" : "border-border hover:bg-muted"}`}
                   >
                     <span className={`mt-0.5 w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-xs font-medium ${selected ? "border-primary bg-primary text-primary-foreground" : "border-border"}`}>
                       {String.fromCharCode(65 + dispIdx)}
                     </span>
-                    <span className="text-sm sm:text-base">{item.q.options[origIdx]}</span>
+                    <span className="text-sm sm:text-base break-words min-w-0">{item.q.options[origIdx]}</span>
                   </button>
                 );
               })}
