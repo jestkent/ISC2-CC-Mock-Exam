@@ -7,7 +7,7 @@ import { Exam } from "@/components/Exam";
 import { Results } from "@/components/Results";
 import { Progress } from "@/components/Progress";
 import type { ExamState, ResultSummary } from "@/lib/exam";
-import { buildExam, prepareQuestions, saveInProgress, scoreExam } from "@/lib/exam";
+import { buildExam, prepareQuestions, saveInProgress, scoreExam, shuffle as shuffleArr } from "@/lib/exam";
 import { PASS_PCT, QUESTIONS, type Question } from "@/lib/questions";
 import {
   fetchAttempts,
