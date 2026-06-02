@@ -9,7 +9,7 @@ import { loadInProgress } from "@/lib/exam";
 interface Props {
   userEmail: string;
   userId: string;
-  onStart: (mode: "full" | "quick" | "advA" | "advB" | "domainDrill") => void;
+  onStart: (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => void;
   onResume: (state: ExamState) => void;
   onShowProgress: () => void;
 }
@@ -111,12 +111,33 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
+          <div className="bg-card text-card-foreground rounded-xl p-6 border border-border/30">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="p-2 rounded-lg bg-primary/20 text-primary">
+                <Clock />
+              </span>
+              <h3 className="font-serif text-xl">Full Exam</h3>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              100 questions · 2-hour timer. Set B emphasizes Access Controls, BC/DR & Incident Response, and Security Principles.
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => onStart("full")}
+                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
+              >Set A</button>
+              <button
+                onClick={() => onStart("fullB")}
+                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
+              >Set B</button>
+            </div>
+          </div>
           <ModeCard
-            icon={<Clock />}
-            title="Full Exam"
-            desc="All 100 core questions · 2-hour timer"
-            cta="Start full exam"
-            onClick={() => onStart("full")}
+            icon={<Zap />}
+            title="Quick Drill"
+            desc="25 random core questions · untimed"
+            cta="Start quick drill"
+            onClick={() => onStart("quick")}
           />
           <ModeCard
             icon={<Zap />}

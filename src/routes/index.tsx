@@ -7,7 +7,7 @@ import { Exam } from "@/components/Exam";
 import { Results } from "@/components/Results";
 import { Progress } from "@/components/Progress";
 import type { ExamState, ResultSummary } from "@/lib/exam";
-import { buildExam, prepareQuestions, saveInProgress, scoreExam } from "@/lib/exam";
+import { buildExam, prepareQuestions, saveInProgress, scoreExam, shuffle as shuffleArr } from "@/lib/exam";
 import { PASS_PCT, QUESTIONS, type Question } from "@/lib/questions";
 import {
   fetchAttempts,
@@ -50,7 +50,7 @@ function Index() {
   const passPct = PASS_PCT;
   const userId = user?.id;
 
-  const startExam = useMemo(() => async (mode: "full" | "quick" | "advA" | "advB" | "domainDrill") => {
+  const startExam = useMemo(() => async (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => {
     const settings = userId ? await fetchSettings(userId) : { hide_mastered: false };
     const hide = settings.hide_mastered;
 
@@ -77,7 +77,36 @@ function Index() {
     let state: ExamState | null = null;
     if (mode === "full") {
       const pool = await filteredPool(userId, QUESTIONS.core, hide);
-      state = build("full", "Full Exam", pool, 100, 2 * 60 * 60);
+      state = build("full", "Full Exam · Set A", pool, 100, 2 * 60 * 60);
+    } else if (mode === "fullB") {
+      // Set B: 100 questions weighted toward Access Controls, BC/DR & IR, Security Principles.
+      // Drawn from all 200 questions across core + advanced sets.
+      const all = [...QUESTIONS.core, ...QUESTIONS.advancedA, ...QUESTIONS.advancedB];
+      const filteredAll = await filteredPool(userId, all, hide);
+      const weights: Record<string, number> = {
+        "Access Controls": 30,
+        "Security Principles": 30,
+        "BC, DR & Incident Response": 20,
+        "Network Security": 10,
+        "Security Operations": 10,
+      };
+      const picks: Question[] = [];
+      for (const [domain, n] of Object.entries(weights)) {
+        const bucket = filteredAll.filter((q) => q.domainName === domain);
+        picks.push(...shuffleArr(bucket).slice(0, Math.min(n, bucket.length)));
+      }
+      // Top up to 100 from remaining unmastered pool if any bucket was short.
+      if (picks.length < 100) {
+        const chosenIds = new Set(picks.map((q) => q.id));
+        const remainder = shuffleArr(filteredAll.filter((q) => !chosenIds.has(q.id)));
+        picks.push(...remainder.slice(0, 100 - picks.length));
+      }
+      const finalPool = shuffleArr(picks);
+      if (finalPool.length === 0) {
+        alert("You've mastered every question in this set. Toggle off \"Hide mastered questions\" to practice them again.");
+      } else {
+        state = buildExam("fullB", `Full Exam · Set B (Access Controls focus) · ${finalPool.length} questions`, prepareQuestions(finalPool, finalPool.length), 2 * 60 * 60);
+      }
     } else if (mode === "quick") {
       const pool = await filteredPool(userId, QUESTIONS.core, hide);
       state = build("quick", "Quick Drill", pool, 25, null);
