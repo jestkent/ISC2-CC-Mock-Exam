@@ -119,7 +119,7 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
               <h3 className="font-serif text-xl">Full Exam</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              100 questions · 2-hour timer. Set B emphasizes Access Controls, BC/DR & Incident Response, and Security Principles.
+              100 questions · 2-hour timer. Set A is the review set I built while preparing for the exam. Set B is based on what the actual exam focused on — more Access Controls, BC/DR & Incident Response, and Security Principles.
             </p>
             <div className="flex gap-2">
               <button
