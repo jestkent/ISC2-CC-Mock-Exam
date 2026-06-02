@@ -9,7 +9,7 @@ import { loadInProgress } from "@/lib/exam";
 interface Props {
   userEmail: string;
   userId: string;
-  onStart: (mode: "full" | "quick" | "advA" | "advB" | "domainDrill") => void;
+  onStart: (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => void;
   onResume: (state: ExamState) => void;
   onShowProgress: () => void;
 }
