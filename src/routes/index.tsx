@@ -50,7 +50,7 @@ function Index() {
   const passPct = PASS_PCT;
   const userId = user?.id;
 
-  const startExam = useMemo(() => async (mode: "full" | "quick" | "advA" | "advB" | "domainDrill") => {
+  const startExam = useMemo(() => async (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => {
     const settings = userId ? await fetchSettings(userId) : { hide_mastered: false };
     const hide = settings.hide_mastered;
 
