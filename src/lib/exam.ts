@@ -7,7 +7,7 @@ export interface PreparedQuestion {
 }
 
 export interface ExamState {
-  mode: "full" | "quick" | "advA" | "advB" | "mistakes" | "domainDrill";
+  mode: "full" | "fullB" | "quick" | "advA" | "advB" | "mistakes" | "domainDrill";
   label: string;
   timeLimitSec: number | null; // null = untimed
   startedAt: number;
