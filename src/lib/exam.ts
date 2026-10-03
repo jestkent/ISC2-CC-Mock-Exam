@@ -1,4 +1,4 @@
-import type { Question } from "./questions";
+import type { Question, ExamMode, TrackId } from "./questions";
 
 export interface PreparedQuestion {
   q: Question;
@@ -7,7 +7,9 @@ export interface PreparedQuestion {
 }
 
 export interface ExamState {
-  mode: "full" | "fullB" | "quick" | "advA" | "advB" | "mistakes" | "domainDrill";
+  track: TrackId;
+  mode: ExamMode;
+  passPct: number;
   label: string;
   timeLimitSec: number | null; // null = untimed
   startedAt: number;
@@ -40,14 +42,18 @@ export function prepareQuestions(pool: Question[], count?: number): PreparedQues
 }
 
 export function buildExam(
-  mode: ExamState["mode"],
+  mode: ExamMode,
   label: string,
   items: PreparedQuestion[],
   timeLimitSec: number | null,
+  track: TrackId,
+  passPct: number,
 ): ExamState {
   const now = Date.now();
   return {
+    track,
     mode,
+    passPct,
     label,
     timeLimitSec,
     startedAt: now,
@@ -89,19 +95,26 @@ export function scoreExam(state: ExamState, passPct: number): ResultSummary {
   return { total, correct, pct, passed: pct >= passPct, domains, wrongIndices };
 }
 
-const KEY = "cc-exam-inprogress-v1";
-export function saveInProgress(state: ExamState | null) {
-  if (state === null) localStorage.removeItem(KEY);
-  else localStorage.setItem(KEY, JSON.stringify(state));
+const keyFor = (track: TrackId) => `exam-inprogress-${track}-v1`;
+const LEGACY_CC_KEY = "cc-exam-inprogress-v1";
+
+export function saveInProgress(state: ExamState | null, track: TrackId) {
+  if (state === null) localStorage.removeItem(keyFor(track));
+  else localStorage.setItem(keyFor(track), JSON.stringify(state));
 }
-export function loadInProgress(): ExamState | null {
+
+export function loadInProgress(track: TrackId): ExamState | null {
   try {
-    const raw = localStorage.getItem(KEY);
+    let raw = localStorage.getItem(keyFor(track));
+    if (!raw && track === "cc") raw = localStorage.getItem(LEGACY_CC_KEY);
     if (!raw) return null;
-    const s = JSON.parse(raw) as ExamState;
-    if (s.endsAt && s.endsAt < Date.now()) return s; // expired but still resumable to auto-submit
-    return s;
+    return JSON.parse(raw) as ExamState;
   } catch {
     return null;
   }
+}
+
+export function clearInProgress(track: TrackId) {
+  localStorage.removeItem(keyFor(track));
+  if (track === "cc") localStorage.removeItem(LEGACY_CC_KEY);
 }

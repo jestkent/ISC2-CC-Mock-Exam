@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Check, X as XIcon } from "lucide-react";
 import type { ExamState, ResultSummary } from "@/lib/exam";
-import { PASS_PCT } from "@/lib/questions";
 
 interface Props {
   state: ExamState;
@@ -42,7 +41,7 @@ export function Results({ state, summary, onHome, onPracticeMistakes, onReviewAl
               {passed ? "Passed" : "Did not pass"}
             </div>
             <div className="text-muted-foreground text-sm mt-1">
-              {summary.correct} of {summary.total} correct · pass mark {PASS_PCT}%
+              {summary.correct} of {summary.total} correct · pass mark {state.passPct}%
             </div>
             <div className="flex flex-wrap gap-2 mt-4 justify-center sm:justify-start">
               <button onClick={onHome} className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium">Home</button>

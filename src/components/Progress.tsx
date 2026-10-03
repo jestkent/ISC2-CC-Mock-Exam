@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import type { AttemptRow, MasteryRow } from "@/lib/db";
 import { clearHistory, fetchAttempts, fetchMasteryRows } from "@/lib/db";
-import { QUESTIONS } from "@/lib/questions";
+import { TRACKS, type TrackId } from "@/lib/questions";
 
 interface Props {
   userId: string;
+  track: TrackId;
   onBack: () => void;
 }
 
 const RETIRE_THRESHOLD = 3;
 
-export function Progress({ userId, onBack }: Props) {
+export function Progress({ userId, track, onBack }: Props) {
+  const t = TRACKS[track];
   const [attempts, setAttempts] = useState<AttemptRow[] | null>(null);
   const [mastery, setMastery] = useState<number>(0);
   const [masteryRows, setMasteryRows] = useState<MasteryRow[]>([]);
@@ -19,26 +21,28 @@ export function Progress({ userId, onBack }: Props) {
     const [a, rows] = await Promise.all([fetchAttempts(userId), fetchMasteryRows(userId)]);
     setAttempts(a);
     setMasteryRows(rows);
-    const coreIds = new Set(QUESTIONS.core.map((q) => q.id));
+    const coreIds = new Set(t.banks.core.map((q) => q.id));
     let n = 0;
     rows.forEach((r) => coreIds.has(r.question_id) && n++);
     setMastery(n);
   }
 
-  useEffect(() => { refresh(); }, [userId]);
+  useEffect(() => { refresh(); }, [userId, track]);
 
   if (!attempts) return <div className="p-10 text-center text-muted-foreground">Loading…</div>;
 
-  const taken = attempts.length;
-  const best = taken ? Math.max(...attempts.map((a) => Number(a.pct))) : 0;
-  const latest = taken ? Number(attempts[0].pct) : 0;
-  const passes = attempts.filter((a) => a.passed).length;
-  const passRate = taken ? (passes / taken) * 100 : 0;
-  const last20 = attempts.slice(0, 20).slice().reverse();
+  const trackAttempts = attempts.filter((a) => (a.track ?? "cc") === track);
 
-  // domain mastery across all exams
+  const taken = trackAttempts.length;
+  const best = taken ? Math.max(...trackAttempts.map((a) => Number(a.pct))) : 0;
+  const latest = taken ? Number(trackAttempts[0].pct) : 0;
+  const passes = trackAttempts.filter((a) => a.passed).length;
+  const passRate = taken ? (passes / taken) * 100 : 0;
+  const last20 = trackAttempts.slice(0, 20).slice().reverse();
+
+  // domain mastery across all exams for this track
   const domAgg: Record<string, { total: number; correct: number }> = {};
-  for (const a of attempts) {
+  for (const a of trackAttempts) {
     for (const [name, d] of Object.entries(a.domains ?? {})) {
       domAgg[name] ??= { total: 0, correct: 0 };
       domAgg[name].total += d.total;
@@ -50,7 +54,8 @@ export function Progress({ userId, onBack }: Props) {
     <div className="min-h-screen px-4 sm:px-6 py-10">
       <div className="max-w-4xl mx-auto">
         <button onClick={onBack} className="mb-6 text-sm text-primary">← Home</button>
-        <h1 className="font-serif text-3xl mb-8">Progress</h1>
+        <h1 className="font-serif text-3xl mb-2">Progress</h1>
+        <p className="text-sm text-muted-foreground mb-8">{t.eyebrow} · {t.title}</p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <Stat label="Exams taken" value={taken.toString()} />
@@ -62,23 +67,25 @@ export function Progress({ userId, onBack }: Props) {
         <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-serif text-xl">Core mastery</h2>
-            <span className="text-primary font-medium">{mastery}/{QUESTIONS.core.length}</span>
+            <span className="text-primary font-medium">{mastery}/{t.banks.core.length}</span>
           </div>
           <div className="h-3 bg-muted rounded-full overflow-hidden">
-            <div className="h-full bg-primary" style={{ width: `${(mastery / QUESTIONS.core.length) * 100}%` }} />
+            <div className="h-full bg-primary" style={{ width: `${t.banks.core.length ? (mastery / t.banks.core.length) * 100 : 0}%` }} />
           </div>
           <p className="text-xs text-muted-foreground mt-2">
-            {mastery >= QUESTIONS.core.length ? "Advanced unlocked." : `${QUESTIONS.core.length - mastery} more to unlock Advanced.`}
+            {mastery >= t.banks.core.length
+              ? "Every core question mastered."
+              : `${t.banks.core.length - mastery} more to master.`}
           </p>
         </div>
 
         {(() => {
           const retired = new Set(masteryRows.filter((r) => r.correct_count >= RETIRE_THRESHOLD).map((r) => r.question_id));
           const pools: { label: string; ids: string[] }[] = [
-            { label: "Core", ids: QUESTIONS.core.map((q) => q.id) },
-            { label: "Advanced Set A", ids: QUESTIONS.advancedA.map((q) => q.id) },
-            { label: "Advanced Set B", ids: QUESTIONS.advancedB.map((q) => q.id) },
-          ];
+            { label: "Core", ids: t.banks.core.map((q) => q.id) },
+            { label: "Advanced Set A", ids: t.banks.advancedA.map((q) => q.id) },
+            { label: "Advanced Set B", ids: t.banks.advancedB.map((q) => q.id) },
+          ].filter((p) => p.ids.length > 0);
           return (
             <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
               <h2 className="font-serif text-xl mb-4">Retired questions</h2>
@@ -97,8 +104,6 @@ export function Progress({ userId, onBack }: Props) {
             </div>
           );
         })()}
-
-
 
         <div className="bg-card text-card-foreground rounded-2xl p-6 mb-6">
           <h2 className="font-serif text-xl mb-4">Last 20 exams</h2>
@@ -142,10 +147,10 @@ export function Progress({ userId, onBack }: Props) {
         <div className="bg-card text-card-foreground rounded-2xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-serif text-xl">Attempt log</h2>
-            {attempts.length > 0 && (
+            {trackAttempts.length > 0 && (
               <button
                 onClick={async () => {
-                  if (confirm("Delete all attempts and mastery? This cannot be undone.")) {
+                  if (confirm("Delete all attempts and mastery for every exam? This cannot be undone.")) {
                     await clearHistory(userId);
                     refresh();
                   }
@@ -155,7 +160,7 @@ export function Progress({ userId, onBack }: Props) {
             )}
           </div>
           <div className="divide-y divide-border">
-            {attempts.map((a) => (
+            {trackAttempts.map((a) => (
               <div key={a.id} className="py-3 flex items-center justify-between text-sm">
                 <div>
                   <div className="font-medium">{a.mode}{a.set ? ` · ${a.set}` : ""}</div>
@@ -169,7 +174,7 @@ export function Progress({ userId, onBack }: Props) {
                 </div>
               </div>
             ))}
-            {attempts.length === 0 && <p className="text-sm text-muted-foreground py-4">No attempts yet.</p>}
+            {trackAttempts.length === 0 && <p className="text-sm text-muted-foreground py-4">No attempts yet.</p>}
           </div>
         </div>
       </div>
