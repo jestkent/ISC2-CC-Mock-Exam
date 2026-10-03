@@ -125,7 +125,7 @@ export const TRACKS: Record<TrackId, TrackDef> = {
         id: "full",
         label: "Full Exam",
         header: "Full Exam",
-        note: "100 questions drawn across all eight CISSP domains · 2.5-hour timer.",
+        note: "100 questions drawn across all eight CISSP domains.",
         count: 100,
         timeMin: 150,
         pool: "all",
