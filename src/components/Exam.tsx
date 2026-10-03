@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Flag, X } from "lucide-react";
 import type { ExamState } from "@/lib/exam";
 import { saveInProgress, scoreExam } from "@/lib/exam";
-import { PASS_PCT } from "@/lib/questions";
 
 interface Props {
   state: ExamState;
@@ -64,7 +63,7 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
   }
 
   const answered = state.answers.filter((a) => a !== null).length;
-  const summary = useMemo(() => scoreExam(state, PASS_PCT), [state]);
+  const summary = useMemo(() => scoreExam(state, state.passPct), [state]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -184,7 +183,7 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
           {answered < state.items.length && (
             <p className="text-sm text-destructive mb-2">{state.items.length - answered} unanswered will count as wrong.</p>
           )}
-          <p className="text-xs text-muted-foreground mb-4">Pass mark: {PASS_PCT}%. Current pct if submitted: {summary.pct.toFixed(0)}%.</p>
+          <p className="text-xs text-muted-foreground mb-4">Pass mark: {state.passPct}%. Current pct if submitted: {summary.pct.toFixed(0)}%.</p>
           <div className="flex gap-2 justify-end">
             <button onClick={() => setConfirmOpen(false)} className="px-4 py-2 rounded-lg border border-border text-card-foreground">Cancel</button>
             <button onClick={doSubmit} className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium">Submit</button>

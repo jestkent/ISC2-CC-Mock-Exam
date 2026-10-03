@@ -8,7 +8,7 @@ import { Results } from "@/components/Results";
 import { Progress } from "@/components/Progress";
 import type { ExamState, ResultSummary } from "@/lib/exam";
 import { buildExam, prepareQuestions, saveInProgress, scoreExam, shuffle as shuffleArr } from "@/lib/exam";
-import { PASS_PCT, QUESTIONS, type Question } from "@/lib/questions";
+import { TRACKS, allQuestions, type ExamMode, type Question, type TrackId } from "@/lib/questions";
 import {
   fetchAttempts,
   fetchMasteryRows,
@@ -20,8 +20,12 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ISC2 CC Exam Center" },
-      { name: "description", content: "Study and practice for the ISC2 Certified in Cybersecurity (CC) exam." },
+      { title: "Security Exam Center — ISC2 CC, CISSP & Security AI+" },
+      {
+        name: "description",
+        content:
+          "Practice exams, quick drills and mastery tracking for the ISC2 CC, ISC2 CISSP and CompTIA Security AI+ certifications.",
+      },
     ],
   }),
   pendingComponent: () => (
@@ -43,16 +47,18 @@ async function filteredPool(userId: string | undefined, pool: Question[], hide: 
 
 function Index() {
   const { user, loading } = useAuth();
+  const [trackId, setTrackId] = useState<TrackId>("cc");
   const [view, setView] = useState<View>("home");
   const [exam, setExam] = useState<ExamState | null>(null);
   const [result, setResult] = useState<{ state: ExamState; summary: ResultSummary } | null>(null);
 
-  const passPct = PASS_PCT;
   const userId = user?.id;
 
-  const startExam = useMemo(() => async (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => {
+  const startExam = useMemo(() => async (mode: ExamMode) => {
+    const t = TRACKS[trackId];
     const settings = userId ? await fetchSettings(userId) : { hide_mastered: false };
     const hide = settings.hide_mastered;
+    const all = allQuestions(t);
 
     const build = (
       m: ExamState["mode"],
@@ -71,56 +77,58 @@ function Index() {
       const note = hide && useCount < (normalCount ?? sourcePool.length)
         ? ` · ${useCount} unmastered`
         : "";
-      return buildExam(m, baseLabel + note, prepareQuestions(pool, useCount), timeLimitSec);
+      return buildExam(m, baseLabel + note, prepareQuestions(pool, useCount), timeLimitSec, trackId, t.passPercent);
     };
 
     let state: ExamState | null = null;
-    if (mode === "full") {
-      const pool = await filteredPool(userId, QUESTIONS.core, hide);
-      state = build("full", "Full Exam · Set A", pool, 100, 2 * 60 * 60);
-    } else if (mode === "fullB") {
-      // Set B: 100 questions weighted toward Access Controls, BC/DR & IR, Security Principles.
-      // Drawn from all 200 questions across core + advanced sets.
-      const all = [...QUESTIONS.core, ...QUESTIONS.advancedA, ...QUESTIONS.advancedB];
-      const filteredAll = await filteredPool(userId, all, hide);
-      const weights: Record<string, number> = {
-        "Access Controls": 30,
-        "Security Principles": 30,
-        "BC, DR & Incident Response": 20,
-        "Network Security": 10,
-        "Security Operations": 10,
-      };
-      const picks: Question[] = [];
-      for (const [domain, n] of Object.entries(weights)) {
-        const bucket = filteredAll.filter((q) => q.domainName === domain);
-        picks.push(...shuffleArr(bucket).slice(0, Math.min(n, bucket.length)));
+    if (mode === "quick") {
+      const pool = await filteredPool(userId, t.banks.core, hide);
+      state = build("quick", "Quick Drill", pool, t.quickCount, null);
+    } else if (mode === "advA" || mode === "advB") {
+      const def = t.advancedSets?.find((s) => s.id === mode);
+      const bank = mode === "advA" ? t.banks.advancedA : t.banks.advancedB;
+      if (def && bank.length > 0) {
+        const pool = await filteredPool(userId, bank, hide);
+        state = build(mode, `Advanced · ${def.label}`, pool, def.count, def.timeMin * 60);
       }
-      // Top up to 100 from remaining unmastered pool if any bucket was short.
-      if (picks.length < 100) {
-        const chosenIds = new Set(picks.map((q) => q.id));
-        const remainder = shuffleArr(filteredAll.filter((q) => !chosenIds.has(q.id)));
-        picks.push(...remainder.slice(0, 100 - picks.length));
+    } else if (mode === "full" || mode === "fullB") {
+      const def = t.fullSets.find((s) => s.id === mode);
+      if (def) {
+        const basePool = def.pool === "core" ? t.banks.core : all;
+        const pool = await filteredPool(userId, basePool, hide);
+        if (def.weights) {
+          // Weighted selection: pick per-domain quotas from the filtered pool, top up with the rest.
+          const picks: Question[] = [];
+          for (const [domain, n] of Object.entries(def.weights)) {
+            const bucket = pool.filter((q) => q.domainName === domain);
+            picks.push(...shuffleArr(bucket).slice(0, Math.min(n, bucket.length)));
+          }
+          if (picks.length < def.count) {
+            const chosenIds = new Set(picks.map((q) => q.id));
+            picks.push(...shuffleArr(pool.filter((q) => !chosenIds.has(q.id))).slice(0, def.count - picks.length));
+          }
+          const finalPool = shuffleArr(picks);
+          if (finalPool.length === 0) {
+            alert("You've mastered every question in this set. Toggle off \"Hide mastered questions\" to practice them again.");
+          } else {
+            state = buildExam(
+              mode,
+              `${def.header} · ${finalPool.length} questions`,
+              prepareQuestions(finalPool, finalPool.length),
+              def.timeMin * 60,
+              trackId,
+              t.passPercent,
+            );
+          }
+        } else {
+          state = build(mode, def.header, pool, def.count, def.timeMin * 60);
+        }
       }
-      const finalPool = shuffleArr(picks);
-      if (finalPool.length === 0) {
-        alert("You've mastered every question in this set. Toggle off \"Hide mastered questions\" to practice them again.");
-      } else {
-        state = buildExam("fullB", `Full Exam · Set B (Access Controls focus) · ${finalPool.length} questions`, prepareQuestions(finalPool, finalPool.length), 2 * 60 * 60);
-      }
-    } else if (mode === "quick") {
-      const pool = await filteredPool(userId, QUESTIONS.core, hide);
-      state = build("quick", "Quick Drill", pool, 25, null);
-    } else if (mode === "advA") {
-      const pool = await filteredPool(userId, QUESTIONS.advancedA, hide);
-      state = build("advA", "Advanced · Set A", pool, 50, 60 * 60);
-    } else if (mode === "advB") {
-      const pool = await filteredPool(userId, QUESTIONS.advancedB, hide);
-      state = build("advB", "Advanced · Set B", pool, 50, 60 * 60);
     } else {
-      // domainDrill — find weakest domain from history
-      let weakest = QUESTIONS.core[0].domainName;
+      // domainDrill — find weakest domain from this track's history
+      let weakest = t.banks.core[0]?.domainName ?? "";
       if (userId) {
-        const att = await fetchAttempts(userId);
+        const att = (await fetchAttempts(userId)).filter((a) => (a.track ?? "cc") === trackId);
         const agg: Record<string, { total: number; correct: number }> = {};
         for (const a of att) for (const [n, d] of Object.entries(a.domains ?? {})) {
           agg[n] ??= { total: 0, correct: 0 };
@@ -132,7 +140,7 @@ function Index() {
           .sort((a, b) => a[1].correct / a[1].total - b[1].correct / b[1].total);
         if (ranked.length) weakest = ranked[0][0];
       }
-      const basePool = QUESTIONS.core.filter((q) => q.domainName === weakest);
+      const basePool = t.banks.core.filter((q) => q.domainName === weakest);
       const pool = await filteredPool(userId, basePool, hide);
       state = build("domainDrill", `Drill · ${weakest}`, pool, undefined, null);
     }
@@ -141,14 +149,14 @@ function Index() {
       setExam(state);
       setView("exam");
     }
-  }, [userId]);
+  }, [trackId, userId]);
 
   async function handleSubmit(state: ExamState) {
-    const summary = scoreExam(state, passPct);
-    saveInProgress(null);
+    const summary = scoreExam(state, state.passPct);
+    saveInProgress(null, state.track);
     if (userId) {
       const setLabel = state.mode === "advA" ? "A" : state.mode === "advB" ? "B" : null;
-      await saveAttempt(userId, state.mode, setLabel, summary);
+      await saveAttempt(userId, state.mode, setLabel, summary, state.track);
       // Track correct_count for every question answered correctly (all pools).
       const correctQids = state.items
         .map((it, i) => (state.answers[i] === it.correctDisplayIndex ? it.q.id : null))
@@ -162,7 +170,14 @@ function Index() {
   function practiceMistakes() {
     if (!result) return;
     const wrongQs: Question[] = result.summary.wrongIndices.map((i) => result.state.items[i].q);
-    const state = buildExam("mistakes", `Practice · ${wrongQs.length} mistake${wrongQs.length === 1 ? "" : "s"}`, prepareQuestions(wrongQs), null);
+    const state = buildExam(
+      "mistakes",
+      `Practice · ${wrongQs.length} mistake${wrongQs.length === 1 ? "" : "s"}`,
+      prepareQuestions(wrongQs),
+      null,
+      result.state.track,
+      result.state.passPct,
+    );
     setExam(state);
     setView("exam");
   }
@@ -195,12 +210,14 @@ function Index() {
     );
   }
   if (view === "progress") {
-    return <Progress userId={user.id} onBack={() => setView("home")} />;
+    return <Progress userId={user.id} track={trackId} onBack={() => setView("home")} />;
   }
   return (
     <Home
       userEmail={user.email ?? ""}
       userId={user.id}
+      track={trackId}
+      onTrackChange={setTrackId}
       onStart={(m) => startExam(m)}
       onResume={(state) => { setExam(state); setView("exam"); }}
       onShowProgress={() => setView("progress")}

@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 import { Clock, Zap, BookOpen, BarChart3, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { fetchMasteryRows, fetchSettings, saveSettings } from "@/lib/db";
-import { QUESTIONS } from "@/lib/questions";
-import type { ExamState } from "@/lib/exam";
-import { loadInProgress } from "@/lib/exam";
+import { clearInProgress, loadInProgress, type ExamState } from "@/lib/exam";
+import { TRACKS, TRACK_ORDER, type ExamMode, type TrackId } from "@/lib/questions";
 
 interface Props {
   userEmail: string;
   userId: string;
-  onStart: (mode: "full" | "fullB" | "quick" | "advA" | "advB" | "domainDrill") => void;
+  track: TrackId;
+  onTrackChange: (t: TrackId) => void;
+  onStart: (mode: ExamMode) => void;
   onResume: (state: ExamState) => void;
   onShowProgress: () => void;
 }
 
 const RETIRE_THRESHOLD = 3;
 
-export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: Props) {
+function timerLabel(timeMin: number) {
+  if (timeMin >= 60 && timeMin % 60 === 0) return `${timeMin / 60}-hour timer`;
+  return `${timeMin}-minute timer`;
+}
+
+export function Home({ userEmail, userId, track, onTrackChange, onStart, onResume, onShowProgress }: Props) {
+  const t = TRACKS[track];
   const [masteredCount, setMasteredCount] = useState<number | null>(null);
   const [resume, setResume] = useState<ExamState | null>(null);
   const [hideMastered, setHideMastered] = useState(false);
@@ -27,28 +34,26 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
         fetchMasteryRows(userId),
         fetchSettings(userId),
       ]);
-      const coreIds = new Set(QUESTIONS.core.map((q) => q.id));
+      const coreIds = new Set(t.banks.core.map((q) => q.id));
       let n = 0;
       rows.forEach((r) => coreIds.has(r.question_id) && n++);
       setMasteredCount(n);
       setHideMastered(settings.hide_mastered);
     })();
-    setResume(loadInProgress());
-  }, [userId]);
+    setResume(loadInProgress(track));
+  }, [userId, track]);
 
   async function toggleHide(next: boolean) {
     setHideMastered(next);
     await saveSettings(userId, next);
   }
 
-  
-
   return (
     <div className="min-h-screen">
       <header className="border-b border-white/10">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
           <div>
-            <div className="text-xs tracking-[0.3em] uppercase text-primary">ISC2 CC</div>
+            <div className="text-xs tracking-[0.3em] uppercase text-primary">Security Exam Center</div>
             <h1 className="font-serif text-xl">Exam Center</h1>
           </div>
           <div className="flex items-center gap-3 text-sm">
@@ -68,12 +73,32 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-10">
+        <div className="mb-8 flex flex-wrap gap-2">
+          {TRACK_ORDER.map((id) => {
+            const active = id === track;
+            return (
+              <button
+                key={id}
+                onClick={() => onTrackChange(id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition border ${
+                  active
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border text-muted-foreground hover:bg-white/5"
+                }`}
+              >
+                {TRACKS[id].eyebrow}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="mb-10">
-          <h2 className="font-serif text-4xl mb-2">Certified in Cybersecurity</h2>
+          <h2 className="font-serif text-4xl mb-2">{t.title}</h2>
           <p className="text-muted-foreground">
-            Pass mark {QUESTIONS.meta.passPercent}%. Core mastery:{" "}
-            <span className="text-primary font-medium">{masteredCount ?? "—"}/{QUESTIONS.core.length}</span>
+            Pass mark {t.passPercent}%. Core mastery:{" "}
+            <span className="text-primary font-medium">{masteredCount ?? "—"}/{t.banks.core.length}</span>
           </p>
+          <p className="text-sm text-muted-foreground mt-1 max-w-2xl">{t.blurb}</p>
         </div>
 
         {resume && (
@@ -88,7 +113,7 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
                 className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium"
               >Resume</button>
               <button
-                onClick={() => { localStorage.removeItem("cc-exam-inprogress-v1"); setResume(null); }}
+                onClick={() => { clearInProgress(track); setResume(null); }}
                 className="px-4 py-2 border border-border/30 rounded-lg text-sm"
               >Discard</button>
             </div>
@@ -111,38 +136,28 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
-          <div className="bg-card text-card-foreground rounded-xl p-6 border border-border/30">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="p-2 rounded-lg bg-primary/20 text-primary">
-                <Clock />
-              </span>
-              <h3 className="font-serif text-xl">Full Exam</h3>
-            </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              100 questions · 2-hour timer. Set A is the review set I built while preparing for the exam. Set B is based on what the actual exam focused on — more Access Controls, BC/DR & Incident Response, and Security Principles.
-            </p>
-            <div className="flex gap-2">
+          {t.fullSets.map((def) => (
+            <div key={def.id} className="bg-card text-card-foreground rounded-xl p-6 border border-border/30 flex flex-col">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="p-2 rounded-lg bg-primary/20 text-primary">
+                  <Clock />
+                </span>
+                <h3 className="font-serif text-xl">
+                  Full Exam{t.fullSets.length > 1 ? ` · ${def.label}` : ""}
+                </h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{def.note}</p>
+              <p className="text-xs text-muted-foreground mb-4">{def.count} questions · {timerLabel(def.timeMin)}</p>
               <button
-                onClick={() => onStart("full")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
-              >Set A</button>
-              <button
-                onClick={() => onStart("fullB")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
-              >Set B</button>
+                onClick={() => onStart(def.id)}
+                className="self-start px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
+              >Start</button>
             </div>
-          </div>
+          ))}
           <ModeCard
             icon={<Zap />}
             title="Quick Drill"
-            desc="25 random core questions · untimed"
-            cta="Start quick drill"
-            onClick={() => onStart("quick")}
-          />
-          <ModeCard
-            icon={<Zap />}
-            title="Quick Drill"
-            desc="25 random core questions · untimed"
+            desc={`${t.quickCount} random core questions · untimed`}
             cta="Start quick drill"
             onClick={() => onStart("quick")}
           />
@@ -153,27 +168,28 @@ export function Home({ userEmail, userId, onStart, onResume, onShowProgress }: P
             cta="Drill weakest"
             onClick={() => onStart("domainDrill")}
           />
-          <div className="bg-card text-card-foreground rounded-xl p-6 border border-border/30">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="p-2 rounded-lg bg-primary/20 text-primary">
-                <BookOpen />
-              </span>
-              <h3 className="font-serif text-xl">Advanced Exam</h3>
+          {t.advancedSets && (
+            <div className="bg-card text-card-foreground rounded-xl p-6 border border-border/30">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="p-2 rounded-lg bg-primary/20 text-primary">
+                  <BookOpen />
+                </span>
+                <h3 className="font-serif text-xl">Advanced Exam</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                {t.advancedSets.map((s) => `${s.label}: ${s.count} questions, ${timerLabel(s.timeMin)}`).join(" · ")}.
+              </p>
+              <div className="flex gap-2">
+                {t.advancedSets.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => onStart(s.id)}
+                    className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
+                  >{s.label}</button>
+                ))}
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Two 50-question sets, 1 hour each.
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onStart("advA")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
-              >Set A</button>
-              <button
-                onClick={() => onStart("advB")}
-                className="flex-1 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90"
-              >Set B</button>
-            </div>
-          </div>
+          )}
         </div>
       </main>
     </div>

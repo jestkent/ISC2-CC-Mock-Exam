@@ -10,6 +10,7 @@ export interface AttemptRow {
   id: string;
   user_id: string;
   mode: string;
+  track?: string;
   set: string | null;
   total: number;
   correct: number;
@@ -29,11 +30,13 @@ export async function saveAttempt(
   mode: string,
   set: string | null,
   summary: ResultSummary,
+  track: string,
 ) {
   const { error } = await supabase.from("attempts").insert({
     user_id: userId,
     mode,
     set,
+    track,
     total: summary.total,
     correct: summary.correct,
     pct: Number(summary.pct.toFixed(2)),
