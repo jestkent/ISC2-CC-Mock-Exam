@@ -1,1 +1,1075 @@
-{"meta": {"exam": "CompTIA Security AI+", "passPercent": 70, "domains": {}, "counts": {"core": 0, "advancedA": 0, "advancedB": 0}}, "core": [], "advancedA": [], "advancedB": []}
+{
+ "meta": {
+  "exam": "CompTIA SecAI+ (CY0-001 V1)",
+  "passPercent": 63,
+  "timeLimitMin": 60,
+  "officialQuestionCount": 60,
+  "domains": {
+   "1": "Basic AI Concepts Related to Cybersecurity",
+   "2": "Securing AI Systems",
+   "3": "AI-assisted Security",
+   "4": "AI Governance, Risk, and Compliance"
+  },
+  "counts": {
+   "core": 45,
+   "advancedA": 15,
+   "advancedB": 15
+  }
+ },
+ "core": [
+  {
+   "id": "secai-1",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which AI technique uses labeled input-output pairs to teach a model to make predictions?",
+   "options": [
+    "Unsupervised learning",
+    "Supervised learning",
+    "Reinforcement learning",
+    "Zero-shot prompting"
+   ],
+   "answerIndex": 1,
+   "explanation": "Supervised learning trains a model on labeled data so it can learn the mapping between inputs and known correct outputs."
+  },
+  {
+   "id": "secai-2",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "A security analyst wants a model to cluster similar network traffic patterns without pre-labeled categories. Which training technique should be used?",
+   "options": [
+    "Supervised learning",
+    "Unsupervised learning",
+    "Fine-tuning",
+    "Reinforcement learning"
+   ],
+   "answerIndex": 1,
+   "explanation": "Unsupervised learning finds patterns and groupings in unlabeled data, which is ideal for clustering similar traffic without predefined categories."
+  },
+  {
+   "id": "secai-3",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which term describes providing a large language model with several labeled examples in the prompt before asking it to perform a task?",
+   "options": [
+    "Zero-shot prompting",
+    "One-shot prompting",
+    "Multi-shot prompting",
+    "Fine-tuning"
+   ],
+   "answerIndex": 2,
+   "explanation": "Multi-shot (few-shot) prompting supplies multiple examples within the prompt to guide the model's response format and behavior."
+  },
+  {
+   "id": "secai-4",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "What is the primary purpose of retrieval-augmented generation (RAG) in an AI system?",
+   "options": [
+    "Reducing model size through pruning",
+    "Supplementing a model's responses with external, up-to-date data",
+    "Converting unstructured data to structured data",
+    "Training a model from scratch"
+   ],
+   "answerIndex": 1,
+   "explanation": "RAG retrieves relevant external information, often from a vector store, and augments the model's context so responses are more accurate and current."
+  },
+  {
+   "id": "secai-5",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which data processing step verifies that data has not been altered or corrupted since its creation?",
+   "options": [
+    "Data augmentation",
+    "Data balancing",
+    "Data integrity verification",
+    "Data cleansing"
+   ],
+   "answerIndex": 2,
+   "explanation": "Data integrity verification confirms that data remains accurate and unaltered from its original state, which is critical before using it to train or fine-tune AI models."
+  },
+  {
+   "id": "secai-6",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "A developer reduces the numerical precision of a trained model's weights to decrease memory usage and speed up inference. Which technique is being applied?",
+   "options": [
+    "Quantization",
+    "Pruning",
+    "Epoch adjustment",
+    "Embedding"
+   ],
+   "answerIndex": 0,
+   "explanation": "Quantization reduces the precision of model weights (e.g., from 32-bit to 8-bit), lowering memory and compute requirements with minimal accuracy loss."
+  },
+  {
+   "id": "secai-7",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which AI model type is specifically designed to process and generate human language, such as answering questions or summarizing text?",
+   "options": [
+    "Generative adversarial network",
+    "Large language model",
+    "Convolutional neural network",
+    "Reinforcement learning agent"
+   ],
+   "answerIndex": 1,
+   "explanation": "Large language models (LLMs) are a form of NLP model trained on vast text corpora to understand and generate human language."
+  },
+  {
+   "id": "secai-8",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which attack involves subtly manipulating input data to cause an AI model to misclassify it, often imperceptibly to humans?",
+   "options": [
+    "Data poisoning",
+    "Adversarial example attack",
+    "Model inversion",
+    "Prompt injection"
+   ],
+   "answerIndex": 1,
+   "explanation": "Adversarial example attacks craft inputs with small, often human-imperceptible perturbations designed to fool a model into making incorrect predictions."
+  },
+  {
+   "id": "secai-9",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An attacker injects malicious training samples into a model's training set to degrade its future performance. This is an example of which attack?",
+   "options": [
+    "Model extraction",
+    "Data poisoning",
+    "Jailbreaking",
+    "Membership inference"
+   ],
+   "answerIndex": 1,
+   "explanation": "Data poisoning involves corrupting the training dataset so the resulting model behaves incorrectly or maliciously as intended by the attacker."
+  },
+  {
+   "id": "secai-10",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which technique allows an attacker to repeatedly query a model's API to reconstruct a functionally similar copy of the proprietary model?",
+   "options": [
+    "Model extraction",
+    "Data augmentation",
+    "Fine-tuning",
+    "Watermarking"
+   ],
+   "answerIndex": 0,
+   "explanation": "Model extraction (model stealing) uses systematic queries and observed outputs to approximate and replicate a target model's behavior without direct access to it."
+  },
+  {
+   "id": "secai-11",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A user crafts a prompt designed to override a chatbot's system instructions and bypass its safety guardrails. This is known as:",
+   "options": [
+    "Data poisoning",
+    "Prompt injection",
+    "Model drift",
+    "Federated learning"
+   ],
+   "answerIndex": 1,
+   "explanation": "Prompt injection manipulates the input to an LLM so it ignores or overrides its original instructions, often to bypass safety controls."
+  },
+  {
+   "id": "secai-12",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which control is most effective for preventing sensitive data from being exposed when a user submits confidential information into a public generative AI tool?",
+   "options": [
+    "Output watermarking",
+    "Data loss prevention (DLP) integration",
+    "Model pruning",
+    "Reinforcement learning from human feedback"
+   ],
+   "answerIndex": 1,
+   "explanation": "DLP controls can detect and block sensitive data before it is submitted to external AI services, preventing data leakage."
+  },
+  {
+   "id": "secai-13",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "What is the primary security risk of an AI model experiencing 'model drift' over time?",
+   "options": [
+    "The model becomes faster but less accurate",
+    "The model's performance degrades as real-world data diverges from training data, potentially missing new threats",
+    "The model's weights become encrypted",
+    "The model automatically retrains on adversarial inputs"
+   ],
+   "answerIndex": 1,
+   "explanation": "Model drift occurs when the statistical properties of incoming data change over time, causing the model's accuracy to degrade, which can leave security gaps against emerging threats."
+  },
+  {
+   "id": "secai-14",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which AI supply chain risk involves using a third-party pretrained model that contains hidden malicious behavior triggered by a specific input pattern?",
+   "options": [
+    "A backdoored (trojaned) model",
+    "A pruned model",
+    "An overfit model",
+    "A federated model"
+   ],
+   "answerIndex": 0,
+   "explanation": "A backdoored or trojaned model has been intentionally manipulated to behave normally except when a specific trigger pattern is present, at which point it produces attacker-controlled output."
+  },
+  {
+   "id": "secai-15",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An organization deploys an AI model and wants to ensure its outputs can be traced back to the exact model version and training data used. Which practice supports this?",
+   "options": [
+    "Model versioning and lineage documentation",
+    "Prompt engineering",
+    "Quantization",
+    "Zero-shot prompting"
+   ],
+   "answerIndex": 0,
+   "explanation": "Model versioning combined with lineage documentation creates an auditable record linking outputs to the specific model version, training data, and configuration used."
+  },
+  {
+   "id": "secai-16",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which security control helps protect an AI model's confidentiality when it is deployed via an API that malicious actors could query repeatedly to steal the model?",
+   "options": [
+    "Rate limiting and query monitoring",
+    "Data augmentation",
+    "Increasing the training epochs",
+    "Removing system prompts"
+   ],
+   "answerIndex": 0,
+   "explanation": "Rate limiting and monitoring query patterns help detect and prevent the high-volume querying typically needed to perform model extraction attacks."
+  },
+  {
+   "id": "secai-17",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "What is the main purpose of applying output filtering to a generative AI chatbot deployed for customer service?",
+   "options": [
+    "To increase model training speed",
+    "To prevent the model from producing harmful, biased, or sensitive content in its responses",
+    "To reduce the number of parameters in the model",
+    "To enable multi-shot prompting"
+   ],
+   "answerIndex": 1,
+   "explanation": "Output filtering screens generated responses for harmful, biased, or sensitive content before it reaches the end user, serving as a safety guardrail."
+  },
+  {
+   "id": "secai-18",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A company fine-tunes a foundation model on proprietary customer data. Which risk is most directly introduced by this process?",
+   "options": [
+    "The model could memorize and leak sensitive training data in its outputs",
+    "The model will automatically become more biased toward public opinion",
+    "The vector store will stop indexing new data",
+    "The model will no longer require authentication"
+   ],
+   "answerIndex": 0,
+   "explanation": "Fine-tuning on proprietary data risks the model memorizing specifics of that data, which could later be exposed through careful prompting, creating a data leakage risk."
+  },
+  {
+   "id": "secai-19",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which best describes a 'membership inference' attack against an AI model?",
+   "options": [
+    "Determining whether a specific record was part of the model's training dataset",
+    "Injecting malicious code into the model's weights",
+    "Overriding the model's system prompt",
+    "Reducing model accuracy through pruning"
+   ],
+   "answerIndex": 0,
+   "explanation": "Membership inference attacks attempt to determine whether a particular data record was used in training the model, which can expose private information about individuals in the dataset."
+  },
+  {
+   "id": "secai-20",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "To secure an AI model pipeline, which practice ensures that only verified and approved datasets are used for training?",
+   "options": [
+    "Data provenance and integrity validation prior to ingestion",
+    "Applying watermarks to model output",
+    "Increasing the learning rate",
+    "Disabling logging"
+   ],
+   "answerIndex": 0,
+   "explanation": "Validating data provenance and integrity before it enters the training pipeline ensures datasets are from trusted sources and have not been tampered with."
+  },
+  {
+   "id": "secai-21",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An AI red team successfully gets a chatbot to reveal its hidden system prompt by asking it to 'repeat everything above.' Which vulnerability does this demonstrate?",
+   "options": [
+    "Prompt leaking",
+    "Model extraction",
+    "Data poisoning",
+    "Federated learning compromise"
+   ],
+   "answerIndex": 0,
+   "explanation": "Prompt leaking occurs when an attacker manipulates the model into disclosing its confidential system prompt or internal instructions."
+  },
+  {
+   "id": "secai-22",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which hardware/software based protection helps secure AI model weights and sensitive inference data while in use, not just at rest or in transit?",
+   "options": [
+    "Trusted execution environments (TEEs)",
+    "Data augmentation",
+    "Prompt templates",
+    "Embedding normalization"
+   ],
+   "answerIndex": 0,
+   "explanation": "Trusted execution environments provide hardware-isolated, encrypted memory regions that protect data and model weights even while actively being processed."
+  },
+  {
+   "id": "secai-23",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which measure best mitigates the risk of a compromised AI software dependency being introduced into a model deployment pipeline?",
+   "options": [
+    "Software bill of materials (SBOM) and dependency scanning",
+    "Watermarking model outputs",
+    "Increasing model epochs",
+    "Using zero-shot prompting exclusively"
+   ],
+   "answerIndex": 0,
+   "explanation": "An SBOM combined with dependency scanning provides visibility into third-party components and libraries, allowing vulnerabilities or malicious packages to be identified before deployment."
+  },
+  {
+   "id": "secai-24",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A company notices that an open-source pretrained model performs unexpectedly on specific inputs containing a rare pattern. What should the security team investigate first?",
+   "options": [
+    "Whether the model contains a backdoor trigger",
+    "Whether the GPU drivers need updating",
+    "Whether the prompt is too short",
+    "Whether the vector store needs re-indexing"
+   ],
+   "answerIndex": 0,
+   "explanation": "Unexpected behavior triggered by rare, specific input patterns is a classic indicator of a backdoored model, warranting immediate investigation."
+  },
+  {
+   "id": "secai-25",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which access control principle should govern who can modify an AI model's training pipeline configuration in production?",
+   "options": [
+    "Least privilege",
+    "Full administrative access for all data scientists",
+    "No authentication required for internal tools",
+    "Shared service accounts for convenience"
+   ],
+   "answerIndex": 0,
+   "explanation": "Least privilege limits pipeline modification rights to only those individuals who require them, reducing the risk of unauthorized or accidental changes to the model."
+  },
+  {
+   "id": "secai-26",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which primary benefit does AI provide to a security operations center (SOC) when triaging large volumes of alerts?",
+   "options": [
+    "Eliminating the need for human analysts entirely",
+    "Automating correlation and prioritization of alerts to reduce analyst workload",
+    "Replacing firewalls with machine learning models",
+    "Encrypting all network traffic automatically"
+   ],
+   "answerIndex": 1,
+   "explanation": "AI can automatically correlate, score, and prioritize alerts, allowing analysts to focus on the most critical incidents and reducing alert fatigue."
+  },
+  {
+   "id": "secai-27",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "An AI-powered user and entity behavior analytics (UEBA) tool flags a login from an unusual location at an unusual time for a given employee. This is an example of:",
+   "options": [
+    "Signature-based detection",
+    "Anomaly-based detection",
+    "Static code analysis",
+    "Data poisoning"
+   ],
+   "answerIndex": 1,
+   "explanation": "UEBA uses anomaly-based detection, establishing behavioral baselines and flagging deviations such as unusual login times or locations."
+  },
+  {
+   "id": "secai-28",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which AI-assisted capability helps security teams automatically draft and execute response playbooks when a known type of incident is detected?",
+   "options": [
+    "Security orchestration, automation, and response (SOAR) integrated with AI",
+    "Data augmentation",
+    "Model pruning",
+    "Federated learning"
+   ],
+   "answerIndex": 0,
+   "explanation": "AI-enhanced SOAR platforms can automatically trigger predefined or dynamically generated playbooks to respond to detected incidents, speeding up response times."
+  },
+  {
+   "id": "secai-29",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "How can generative AI assist a threat intelligence team most effectively?",
+   "options": [
+    "By summarizing large volumes of threat reports and extracting indicators of compromise",
+    "By physically patching vulnerable servers",
+    "By replacing the need for firewalls",
+    "By generating adversarial malware for live production networks"
+   ],
+   "answerIndex": 0,
+   "explanation": "Generative AI can rapidly summarize lengthy threat intelligence reports and extract key indicators of compromise, accelerating analyst workflows."
+  },
+  {
+   "id": "secai-30",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which risk should a SOC consider before relying heavily on an AI model to auto-close alerts it classifies as false positives?",
+   "options": [
+    "The model may have blind spots or biases causing it to miss true positives",
+    "AI models cannot process log data",
+    "Auto-closing alerts always improves detection accuracy",
+    "AI models require no human oversight once deployed"
+   ],
+   "answerIndex": 0,
+   "explanation": "Automated decision-making carries the risk that the model's blind spots or training biases could cause it to incorrectly dismiss genuine threats, so human oversight remains important."
+  },
+  {
+   "id": "secai-31",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "What is a key advantage of using AI-driven natural language processing to analyze phishing emails?",
+   "options": [
+    "It can identify subtle linguistic and contextual cues indicating social engineering that rule-based filters might miss",
+    "It guarantees 100% detection with no false positives",
+    "It eliminates the need for employee security awareness training",
+    "It automatically blocks all inbound email traffic"
+   ],
+   "answerIndex": 0,
+   "explanation": "NLP-based AI can detect nuanced linguistic patterns, tone, and context associated with phishing that simple keyword or rule-based filters often miss."
+  },
+  {
+   "id": "secai-32",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "An AI-assisted vulnerability management tool prioritizes patches based on exploitability and business context rather than CVSS score alone. What is this approach called?",
+   "options": [
+    "Risk-based vulnerability prioritization",
+    "Static analysis",
+    "Model extraction",
+    "Data poisoning"
+   ],
+   "answerIndex": 0,
+   "explanation": "Risk-based vulnerability prioritization uses contextual factors like exploitability, asset criticality, and threat intelligence, often AI-assisted, to prioritize remediation beyond raw CVSS scores."
+  },
+  {
+   "id": "secai-33",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which use case best demonstrates AI augmenting, rather than replacing, human security analysts?",
+   "options": [
+    "An AI tool suggests likely root causes and recommended next steps for an incident, which the analyst reviews and approves",
+    "An AI tool automatically deletes all flagged files without review",
+    "An AI tool disables all human access to the SIEM",
+    "An AI tool makes final legal determinations about data breach notification"
+   ],
+   "answerIndex": 0,
+   "explanation": "Augmentation means AI provides recommendations and accelerates analysis while a human analyst retains decision-making authority and final approval."
+  },
+  {
+   "id": "secai-34",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "How can AI improve malware analysis workflows?",
+   "options": [
+    "By automatically classifying and clustering malware samples based on behavioral and static features",
+    "By writing new malware for internal testing purposes only",
+    "By eliminating the need for sandboxing",
+    "By manually reverse-engineering every sample"
+   ],
+   "answerIndex": 0,
+   "explanation": "AI models can automatically classify and cluster malware samples using extracted features, accelerating triage and identification of malware families."
+  },
+  {
+   "id": "secai-35",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "A security team uses an AI model to generate synthetic attack traffic for testing detection rules. What is the primary benefit of this approach?",
+   "options": [
+    "It allows safe, repeatable testing of detection capabilities without risking production systems",
+    "It replaces the need for a SIEM",
+    "It guarantees the organization is immune to all future attacks",
+    "It eliminates the need for patch management"
+   ],
+   "answerIndex": 0,
+   "explanation": "Synthetic attack traffic generation allows teams to safely and repeatedly validate detection rules and controls without exposing production systems to real attacks."
+  },
+  {
+   "id": "secai-36",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which capability allows AI to detect previously unseen ('zero-day style') attack patterns in network traffic more effectively than static signatures?",
+   "options": [
+    "Anomaly detection based on learned behavioral baselines",
+    "Hardcoded blocklists",
+    "Manual log review only",
+    "Static signature matching"
+   ],
+   "answerIndex": 0,
+   "explanation": "Because AI-based anomaly detection learns normal behavior patterns rather than relying on known signatures, it can flag deviations indicative of novel or zero-day attacks."
+  },
+  {
+   "id": "secai-37",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which regulatory framework specifically addresses risk-based requirements for AI systems deployed within the European Union?",
+   "options": [
+    "GDPR only",
+    "The EU AI Act",
+    "PCI DSS",
+    "HIPAA"
+   ],
+   "answerIndex": 1,
+   "explanation": "The EU AI Act establishes a risk-based regulatory framework specifically for the development and deployment of AI systems within the EU."
+  },
+  {
+   "id": "secai-38",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "What is the primary purpose of an AI governance framework within an organization?",
+   "options": [
+    "To eliminate all AI projects due to risk",
+    "To establish policies, accountability, and oversight for the ethical and compliant use of AI",
+    "To replace the need for a privacy policy",
+    "To guarantee 100% model accuracy"
+   ],
+   "answerIndex": 1,
+   "explanation": "AI governance frameworks establish organizational policies, roles, and oversight mechanisms to ensure AI is developed and used ethically, legally, and in alignment with risk tolerance."
+  },
+  {
+   "id": "secai-39",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which concept refers to systematically identifying, assessing, and treating risks specific to AI systems, such as bias or model failure?",
+   "options": [
+    "AI risk management",
+    "Data augmentation",
+    "Prompt engineering",
+    "Model pruning"
+   ],
+   "answerIndex": 0,
+   "explanation": "AI risk management is the structured process of identifying, assessing, and mitigating risks unique to AI systems throughout their lifecycle."
+  },
+  {
+   "id": "secai-40",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "An organization must ensure its AI hiring tool does not disproportionately disadvantage any protected group. This concern primarily relates to which GRC principle?",
+   "options": [
+    "Algorithmic bias and fairness",
+    "Data lineage",
+    "Model pruning",
+    "Quantization"
+   ],
+   "answerIndex": 0,
+   "explanation": "Ensuring an AI system does not produce discriminatory outcomes against protected groups is a core fairness and bias concern addressed in AI governance and compliance programs."
+  },
+  {
+   "id": "secai-41",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which practice helps organizations demonstrate accountability and traceability of AI decision-making to regulators or auditors?",
+   "options": [
+    "Maintaining detailed documentation and audit trails of model decisions and data usage",
+    "Disabling all logging to save storage",
+    "Avoiding any third-party AI risk assessments",
+    "Using only unsupervised learning"
+   ],
+   "answerIndex": 0,
+   "explanation": "Comprehensive documentation and audit trails create transparency and traceability, allowing organizations to demonstrate compliance and accountability for AI-driven decisions."
+  },
+  {
+   "id": "secai-42",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "What is 'explainability' in the context of AI governance?",
+   "options": [
+    "The ability to describe how an AI model arrived at a particular decision or output in understandable terms",
+    "The speed at which a model can be trained",
+    "The number of parameters in a neural network",
+    "The model's resistance to adversarial attacks"
+   ],
+   "answerIndex": 0,
+   "explanation": "Explainability refers to the capacity to articulate, in human-understandable terms, the reasoning or factors behind an AI model's decision or output."
+  },
+  {
+   "id": "secai-43",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which global compliance consideration is most relevant when an organization transfers AI training data containing personal information across international borders?",
+   "options": [
+    "Cross-border data transfer regulations, such as those under GDPR",
+    "Model quantization standards",
+    "Software licensing for GPUs",
+    "Internal naming conventions"
+   ],
+   "answerIndex": 0,
+   "explanation": "Transferring personal data internationally triggers data protection regulations like GDPR that govern cross-border data transfer mechanisms and safeguards."
+  },
+  {
+   "id": "secai-44",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which role is typically responsible for overseeing enterprise-wide AI risk, ethics, and compliance strategy?",
+   "options": [
+    "AI governance committee or AI ethics officer",
+    "Help desk technician",
+    "Network cable installer",
+    "Marketing intern"
+   ],
+   "answerIndex": 0,
+   "explanation": "An AI governance committee or designated AI ethics/risk officer typically owns the strategy, policy, and oversight for responsible AI use across the enterprise."
+  },
+  {
+   "id": "secai-45",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "A company wants to ensure its third-party AI vendor meets security and compliance obligations before integration. Which process should be performed?",
+   "options": [
+    "Vendor/third-party risk assessment and due diligence",
+    "Skipping contract review to save time",
+    "Granting the vendor full administrative access immediately",
+    "Disabling internal security monitoring"
+   ],
+   "answerIndex": 0,
+   "explanation": "Third-party risk assessment and due diligence evaluate a vendor's security posture, compliance certifications, and contractual obligations before integrating their AI solution."
+  }
+ ],
+ "advancedA": [
+  {
+   "id": "secai-46",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "A GAN is being used to generate synthetic phishing emails for a red-team exercise. Which component of the GAN is responsible for distinguishing real emails from generated ones?",
+   "options": [
+    "The generator",
+    "The discriminator",
+    "The embedding layer",
+    "The vector store"
+   ],
+   "answerIndex": 1,
+   "explanation": "In a generative adversarial network, the discriminator evaluates samples and tries to distinguish genuine data from the generator's synthetic output, driving the generator to improve."
+  },
+  {
+   "id": "secai-47",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "During fine-tuning, an engineer notices the model performs well on training data but poorly on new data after too many epochs. What is the most likely cause?",
+   "options": [
+    "Underfitting due to insufficient epochs",
+    "Overfitting from excessive training",
+    "Data provenance failure",
+    "Quantization error"
+   ],
+   "answerIndex": 1,
+   "explanation": "Training for too many epochs can cause the model to memorize training data (overfitting) rather than generalize, reducing performance on unseen inputs."
+  },
+  {
+   "id": "secai-48",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which combination of techniques would most directly improve the trustworthiness of training data used for a cybersecurity detection model?",
+   "options": [
+    "Prompt engineering and templates",
+    "Data lineage tracking and data provenance validation",
+    "One-shot prompting and system roles",
+    "Pruning and quantization"
+   ],
+   "answerIndex": 1,
+   "explanation": "Data lineage and provenance validation establish where data originated and how it was transformed, which is essential to trust and auditability of training data."
+  },
+  {
+   "id": "secai-49",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A security engineer discovers that carefully crafted perturbations added to malware binaries are causing an AI-based malware classifier to label them as benign, while a human analyst still identifies them as malicious. Which mitigation is most effective against this specific threat?",
+   "options": [
+    "Adversarial training using similarly perturbed samples",
+    "Increasing the model's learning rate",
+    "Disabling the classifier's logging",
+    "Switching to zero-shot prompting"
+   ],
+   "answerIndex": 0,
+   "explanation": "Adversarial training incorporates adversarial examples into the training process so the model learns to correctly classify perturbed inputs, directly hardening it against evasion attacks."
+  },
+  {
+   "id": "secai-50",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An organization's LLM-powered coding assistant has access to internal source code repositories via plugins. A researcher demonstrates that a crafted prompt can make the assistant exfiltrate repository secrets through its response. Which architectural control would most reduce this risk?",
+   "options": [
+    "Granting the assistant broader repository access to improve context",
+    "Enforcing strict least-privilege scoping and output sanitization on plugin/tool access",
+    "Increasing the context window size",
+    "Disabling system prompts entirely"
+   ],
+   "answerIndex": 1,
+   "explanation": "Limiting plugin/tool permissions to only what is necessary and sanitizing outputs reduces the blast radius of prompt injection attacks that attempt to exfiltrate sensitive data via tool access."
+  },
+  {
+   "id": "secai-51",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A threat actor performs a model inversion attack against a facial recognition API. What is the attacker attempting to achieve?",
+   "options": [
+    "Reconstruct representative training images, such as faces, from the model's outputs",
+    "Replace the model's weights with malicious ones",
+    "Cause a denial of service on the inference server",
+    "Inject a prompt that bypasses content filters"
+   ],
+   "answerIndex": 0,
+   "explanation": "Model inversion attacks use model outputs (e.g., confidence scores) to reconstruct representative inputs from the training data, potentially exposing sensitive biometric information."
+  },
+  {
+   "id": "secai-52",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which combination of controls provides defense-in-depth against both data poisoning and prompt injection in an enterprise RAG-based AI assistant?",
+   "options": [
+    "Input validation/sanitization at ingestion plus strict provenance checks on retrieved documents and output monitoring",
+    "Relying solely on the LLM vendor's default safety filters",
+    "Disabling retrieval entirely and using only static prompts",
+    "Increasing model temperature settings"
+   ],
+   "answerIndex": 0,
+   "explanation": "Defense-in-depth requires securing the data pipeline (input validation and provenance checks on ingested/retrieved content) as well as monitoring outputs, since poisoning and injection attacks can occur at multiple pipeline stages."
+  },
+  {
+   "id": "secai-53",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "During a security review, an assessor finds that an organization's AI model API returns full confidence scores for every class on every prediction. Why is this a security concern?",
+   "options": [
+    "It has no security implications since confidence scores are not sensitive",
+    "High-resolution confidence outputs can facilitate model extraction and membership inference attacks",
+    "It increases GPU memory consumption excessively",
+    "It violates data augmentation best practices"
+   ],
+   "answerIndex": 1,
+   "explanation": "Detailed confidence scores give attackers richer information to approximate decision boundaries, aiding both model extraction and membership inference attacks."
+  },
+  {
+   "id": "secai-54",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An AI pipeline uses federated learning across multiple hospital sites to train a diagnostic model without centralizing patient data. Which residual risk still must be addressed?",
+   "options": [
+    "Centralized data breach of raw patient records",
+    "Gradient updates shared during training could still leak information about individual records",
+    "The model cannot be deployed to any hospital",
+    "Federated learning eliminates all privacy risk"
+   ],
+   "answerIndex": 1,
+   "explanation": "Even though raw data stays local in federated learning, shared gradient or parameter updates can still be analyzed to infer information about the underlying training data, requiring protections like differential privacy or secure aggregation."
+  },
+  {
+   "id": "secai-55",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "A SOC integrates an LLM to automatically generate incident summaries from raw log data for executive reporting. Which risk must be specifically mitigated in this workflow?",
+   "options": [
+    "The LLM may hallucinate details not supported by the underlying log data",
+    "The LLM will automatically patch the vulnerability",
+    "The LLM cannot process any text data",
+    "The LLM eliminates the need for a SIEM entirely"
+   ],
+   "answerIndex": 0,
+   "explanation": "LLMs can generate plausible-sounding but factually incorrect content (hallucinations), so outputs used in incident reporting must be validated against source data before distribution."
+  },
+  {
+   "id": "secai-56",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "An organization uses an AI system to autonomously block IP addresses identified as malicious with no human review. During a false-positive event, the AI blocks a critical business partner's IP, causing an outage. What control would have best prevented this impact?",
+   "options": [
+    "Full autonomous blocking with no override capability",
+    "A human-in-the-loop approval step or confidence threshold before high-impact automated actions execute",
+    "Removing all automation from the SOC",
+    "Lowering the detection model's accuracy requirements"
+   ],
+   "answerIndex": 1,
+   "explanation": "Requiring human approval or a high-confidence threshold before executing high-impact automated actions balances speed with the ability to catch false positives before they cause harm."
+  },
+  {
+   "id": "secai-57",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which metric is most important when evaluating an AI-based intrusion detection model intended to reduce analyst alert fatigue?",
+   "options": [
+    "Only the model's training speed",
+    "The balance between false positive rate and false negative rate (precision/recall trade-off)",
+    "The total number of parameters in the model",
+    "The number of epochs used during training"
+   ],
+   "answerIndex": 1,
+   "explanation": "Reducing alert fatigue requires minimizing false positives without significantly increasing false negatives, making the precision/recall trade-off the key evaluation metric."
+  },
+  {
+   "id": "secai-58",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "A red team uses a generative AI model to produce highly convincing deepfake audio of a CFO authorizing a wire transfer, as part of an authorized social engineering assessment. Which AI-assisted defensive control would best help the organization detect this type of attack in the future?",
+   "options": [
+    "AI-based voice/media authenticity and deepfake detection tools integrated into verification workflows",
+    "Disabling all phone-based communications permanently",
+    "Relying solely on employee intuition",
+    "Removing multi-factor authentication"
+   ],
+   "answerIndex": 0,
+   "explanation": "AI-driven deepfake and media authenticity detection tools, combined with out-of-band verification procedures, help organizations identify and defend against synthetic media-based social engineering."
+  },
+  {
+   "id": "secai-59",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Under a risk-based AI regulatory framework similar to the EU AI Act, an AI system used for biometric identification in public spaces would most likely be classified as which risk category?",
+   "options": [
+    "Minimal risk",
+    "Limited risk",
+    "High risk or prohibited, depending on use case",
+    "No risk, exempt from classification"
+   ],
+   "answerIndex": 2,
+   "explanation": "Biometric identification systems, especially real-time remote biometric identification in public spaces, are treated as high-risk or even prohibited under risk-based AI regulatory frameworks due to significant privacy and civil liberties implications."
+  },
+  {
+   "id": "secai-60",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "An organization's AI governance committee must balance rapid AI innovation with compliance obligations across multiple jurisdictions with conflicting AI regulations. Which approach best addresses this challenge?",
+   "options": [
+    "Ignoring regulations in jurisdictions with weaker enforcement",
+    "Adopting the most stringent applicable regulatory requirements as a baseline across all operations",
+    "Deploying different ungoverned AI models per region with no oversight",
+    "Delaying all AI governance until regulations are finalized globally"
+   ],
+   "answerIndex": 1,
+   "explanation": "Adopting the strictest applicable regulatory baseline across operations simplifies compliance management and reduces risk of violating any single jurisdiction's requirements."
+  }
+ ],
+ "advancedB": [
+  {
+   "id": "secai-61",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "An organization wants an LLM-based assistant to consistently follow a defined persona and behavioral constraints across all user interactions. Which prompt engineering element is best suited for this?",
+   "options": [
+    "User prompt",
+    "System prompt",
+    "Zero-shot example",
+    "Multi-shot example"
+   ],
+   "answerIndex": 1,
+   "explanation": "A system prompt sets persistent instructions, persona, and constraints that govern the model's behavior across the session, independent of individual user prompts."
+  },
+  {
+   "id": "secai-62",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "A security team is building a RAG pipeline and is concerned about sensitive documents being retrievable by unauthorized users through the model's responses. What should be secured first?",
+   "options": [
+    "The model's epoch count",
+    "Access controls on the vector store/embeddings",
+    "The discriminator network",
+    "The pruning schedule"
+   ],
+   "answerIndex": 1,
+   "explanation": "Since RAG retrieves content from a vector store based on embeddings, inadequate access controls there can leak sensitive data through generated responses; securing retrieval access is the first priority."
+  },
+  {
+   "id": "secai-63",
+   "domain": 1,
+   "domainName": "Basic AI Concepts Related to Cybersecurity",
+   "question": "Which statement best differentiates statistical learning from deep learning in a cybersecurity context?",
+   "options": [
+    "Statistical learning relies on explicit probabilistic models and assumptions, while deep learning uses layered neural networks to learn representations automatically",
+    "Statistical learning only works with unstructured data",
+    "Deep learning cannot be used for anomaly detection",
+    "Statistical learning requires GPUs while deep learning does not"
+   ],
+   "answerIndex": 0,
+   "explanation": "Statistical learning is grounded in explicit mathematical/probabilistic modeling, whereas deep learning uses multi-layer neural networks to automatically learn feature representations from data."
+  },
+  {
+   "id": "secai-64",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A penetration tester successfully uses a multi-turn conversation strategy to gradually convince a chatbot to bypass its content policy, despite single-turn attempts failing. What is this technique best classified as?",
+   "options": [
+    "A one-shot prompting technique",
+    "An iterative jailbreaking attack",
+    "A model inversion attack",
+    "A data poisoning attack"
+   ],
+   "answerIndex": 1,
+   "explanation": "Iterative jailbreaking uses multiple conversational turns to incrementally erode a model's guardrails, succeeding where a single malicious prompt would be blocked."
+  },
+  {
+   "id": "secai-65",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which approach best secures embeddings stored in a vector database used for a RAG application handling regulated personal data?",
+   "options": [
+    "Store embeddings in plaintext with no access controls for faster retrieval",
+    "Apply encryption at rest, strict access controls, and data classification tagging on source documents before embedding",
+    "Disable the vector database entirely",
+    "Rely only on the LLM's output filter"
+   ],
+   "answerIndex": 1,
+   "explanation": "Because embeddings can potentially be reverse-engineered to reveal source content, applying encryption, access controls, and proper classification of source data before embedding reduces exposure of regulated information."
+  },
+  {
+   "id": "secai-66",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A company deploys a third-party open-weight model and later discovers that specific trigger phrases cause it to recommend a competitor's malicious software download link. This scenario best illustrates which supply chain risk?",
+   "options": [
+    "Software bill of materials gaps in a container image",
+    "A poisoned/backdoored model embedded in the supply chain",
+    "Excessive rate limiting",
+    "Insufficient GPU allocation"
+   ],
+   "answerIndex": 1,
+   "explanation": "This demonstrates a model supply chain compromise where the model itself was poisoned or backdoored prior to or during distribution, triggering malicious behavior on specific inputs."
+  },
+  {
+   "id": "secai-67",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "An organization wants to detect when its production AI model's predictions begin to diverge meaningfully from its validated baseline behavior due to evolving attacker tactics. Which practice should be implemented?",
+   "options": [
+    "One-time model validation before deployment only",
+    "Continuous model performance monitoring and drift detection",
+    "Disabling retraining permanently",
+    "Removing the model's logging infrastructure"
+   ],
+   "answerIndex": 1,
+   "explanation": "Continuous monitoring and drift detection allow teams to identify when real-world data diverges from training assumptions, which is essential for maintaining detection efficacy against evolving threats."
+  },
+  {
+   "id": "secai-68",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "Which technique would best help an organization verify whether its proprietary model has been unlawfully copied and deployed by a competitor?",
+   "options": [
+    "Embedding a model watermark during training and checking for it in suspect deployments",
+    "Increasing model epochs on suspect deployments",
+    "Disabling the suspect model's API",
+    "Performing a zero-shot prompt test only"
+   ],
+   "answerIndex": 0,
+   "explanation": "Model watermarking embeds a detectable signature into a model's behavior or outputs, allowing owners to later prove ownership if the model is copied or stolen."
+  },
+  {
+   "id": "secai-69",
+   "domain": 2,
+   "domainName": "Securing AI Systems",
+   "question": "A security architect is designing isolation boundaries for a multi-tenant AI inference platform. Which risk is most critical to mitigate?",
+   "options": [
+    "One tenant's crafted inputs or fine-tuning data affecting or leaking into another tenant's model instance",
+    "Slower inference times due to GPU sharing",
+    "Increased storage costs for logs",
+    "Reduced need for authentication"
+   ],
+   "answerIndex": 0,
+   "explanation": "In multi-tenant environments, insufficient isolation can allow cross-tenant data leakage or contamination, so ensuring strict isolation between tenants' models and data is the top priority."
+  },
+  {
+   "id": "secai-70",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "An organization's AI-driven SOAR platform dynamically generates novel remediation scripts using a code-generating LLM during live incidents. What is the most significant security concern with this approach?",
+   "options": [
+    "The LLM-generated scripts might execute unsafe or unvetted commands in production without adequate review",
+    "The LLM cannot generate any scripting code",
+    "This approach guarantees faster patching with zero risk",
+    "SOAR platforms cannot integrate with AI tools"
+   ],
+   "answerIndex": 0,
+   "explanation": "Dynamically generated, unreviewed code executed with elevated privileges in production carries significant risk of unintended or harmful actions; such scripts should be validated or sandboxed before execution."
+  },
+  {
+   "id": "secai-71",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "Which statement best explains why combining AI-driven detection with traditional signature-based detection provides stronger overall security posture?",
+   "options": [
+    "AI detects novel/behavioral anomalies while signatures reliably catch known threats, together covering a broader threat spectrum",
+    "Signature-based detection is obsolete and should be fully replaced by AI",
+    "AI-based detection requires no tuning or maintenance",
+    "Using both methods doubles false positives with no benefit"
+   ],
+   "answerIndex": 0,
+   "explanation": "AI excels at identifying novel and behavioral anomalies, while signature-based tools remain highly reliable and efficient for known threats; combining both provides more comprehensive coverage."
+  },
+  {
+   "id": "secai-72",
+   "domain": 3,
+   "domainName": "AI-assisted Security",
+   "question": "A security team wants to use AI to proactively hunt for indicators of a sophisticated, previously unknown threat actor across petabytes of log data. Which AI capability is most applicable?",
+   "options": [
+    "Unsupervised anomaly detection and clustering across large, unlabeled datasets",
+    "Only rule-based blocklisting",
+    "Manual spreadsheet analysis",
+    "Static signature matching exclusively"
+   ],
+   "answerIndex": 0,
+   "explanation": "Unsupervised learning techniques can identify unusual clusters and outliers across massive unlabeled datasets, which is well suited to hunting for unknown threats without predefined signatures."
+  },
+  {
+   "id": "secai-73",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "A financial institution's AI-based credit scoring model is found to produce statistically disparate outcomes for different demographic groups despite not using protected attributes directly as inputs. What GRC concept does this best illustrate?",
+   "options": [
+    "Direct discrimination",
+    "Proxy discrimination through correlated variables",
+    "Data provenance failure",
+    "Model pruning error"
+   ],
+   "answerIndex": 1,
+   "explanation": "Proxy discrimination occurs when seemingly neutral variables (such as zip code) correlate strongly with protected attributes, causing disparate impact even without directly using those attributes."
+  },
+  {
+   "id": "secai-74",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "Which AI governance control is most effective for ensuring ongoing compliance as regulations and model behavior evolve post-deployment?",
+   "options": [
+    "A one-time compliance review before initial launch only",
+    "Continuous AI risk monitoring and periodic model/compliance re-assessment",
+    "Disabling model updates permanently after deployment",
+    "Removing governance oversight once the model is in production"
+   ],
+   "answerIndex": 1,
+   "explanation": "AI governance is an ongoing lifecycle activity; continuous monitoring and periodic reassessment ensure the model and its compliance posture remain aligned with evolving regulations and real-world behavior."
+  },
+  {
+   "id": "secai-75",
+   "domain": 4,
+   "domainName": "AI Governance, Risk, and Compliance",
+   "question": "An organization is evaluating whether to use a generative AI vendor whose terms of service state that customer prompts may be used to further train their foundation model. From a GRC perspective, what is the primary concern?",
+   "options": [
+    "This improves model performance with no governance implications",
+    "Potential unintended disclosure or exposure of confidential/proprietary data through model training on customer inputs",
+    "This practice is always illegal in every jurisdiction",
+    "This has no effect on data provenance"
+   ],
+   "answerIndex": 1,
+   "explanation": "If customer prompts containing confidential or proprietary data are used to train a vendor's shared model, there is a risk that this information could later be exposed to other users, creating significant data governance and confidentiality concerns."
+  }
+ ]
+}
