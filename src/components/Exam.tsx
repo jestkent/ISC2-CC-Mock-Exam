@@ -17,7 +17,7 @@ export function Exam({ state: initial, onSubmit, onExit }: Props) {
   const submittedRef = useRef(false);
 
   useEffect(() => {
-    saveInProgress(state);
+    saveInProgress(state, state.track);
   }, [state]);
 
   useEffect(() => {
