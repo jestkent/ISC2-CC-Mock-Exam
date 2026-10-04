@@ -25,6 +25,7 @@ export type Database = {
           pct: number
           set: string | null
           total: number
+          track: string
           user_id: string
         }
         Insert: {
@@ -37,6 +38,7 @@ export type Database = {
           pct: number
           set?: string | null
           total: number
+          track?: string
           user_id: string
         }
         Update: {
@@ -49,6 +51,7 @@ export type Database = {
           pct?: number
           set?: string | null
           total?: number
+          track?: string
           user_id?: string
         }
         Relationships: []
