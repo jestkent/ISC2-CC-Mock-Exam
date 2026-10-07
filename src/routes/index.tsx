@@ -26,6 +26,13 @@ export const Route = createFileRoute("/")({
         content:
           "Practice exams, quick drills and mastery tracking for the ISC2 CC, ISC2 CISSP and CompTIA Security AI+ certifications.",
       },
+      { property: "og:title", content: "Security Exam Center — ISC2 CC, CISSP & Security AI+" },
+      {
+        property: "og:description",
+        content: "Practice exams, quick drills and mastery tracking for ISC2 CC, ISC2 CISSP and CompTIA Security AI+.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   pendingComponent: () => (

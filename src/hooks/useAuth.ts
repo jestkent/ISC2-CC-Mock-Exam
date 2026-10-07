@@ -11,8 +11,14 @@ export function useAuth() {
       setSession(s);
       setLoading(false);
     });
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
+    supabase.auth.getUser().then(async ({ data, error }) => {
+      if (error || !data.user) {
+        setSession(null);
+        setLoading(false);
+        return;
+      }
+      const { data: sessionData } = await supabase.auth.getSession();
+      setSession(sessionData.session);
       setLoading(false);
     });
     return () => sub.subscription.unsubscribe();
