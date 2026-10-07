@@ -104,7 +104,7 @@ function ResetPassword() {
         ) : (
           <div className="space-y-4 text-center">
             <p role="alert" className="text-sm text-destructive">This password reset link is invalid or has expired.</p>
-            <Button asChild variant="outline" className="h-11 w-full"><Link to="/">Request a new link</Link></Button>
+            <Button asChild className="h-11 w-full"><Link to="/">Request a new link</Link></Button>
           </div>
         )}
       </section>

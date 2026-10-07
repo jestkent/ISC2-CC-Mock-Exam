@@ -123,7 +123,7 @@ export function AuthGate() {
                   type={showPassword ? "text" : "password"}
                   autoComplete={mode === "sign-up" ? "new-password" : "current-password"}
                   required
-                  minLength={8}
+                  minLength={mode === "sign-up" ? 8 : undefined}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="h-11 pr-11"
